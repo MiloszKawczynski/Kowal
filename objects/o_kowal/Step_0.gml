@@ -37,4 +37,7 @@ if (place_meeting(x,y+vspeed,o_blok))
 
 camera_set_view_pos(view_camera[0],x-(view_wport[0]/2),y-(view_hport[0]/2));
 
-
+if keyboard_check_pressed(ord("R")) 
+{
+	game_restart()
+}
