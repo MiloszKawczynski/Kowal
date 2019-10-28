@@ -18,7 +18,11 @@ vspeed+=grawitacja;
 //kolizja
 if (place_meeting(x,y+vspeed,o_blok))
 {
-	vspeed=0;
+    while(!place_meeting(x,y+sign(vspeed),o_blok))
+    {
+        y+=sign(vspeed);
+    }
+    vspeed=0;
 }
 
 
