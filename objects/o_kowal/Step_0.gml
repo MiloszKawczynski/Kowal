@@ -1,29 +1,14 @@
+//kierunek
 
+kierunek=(keyboard_check(ord("D"))-keyboard_check(ord("A")));
+hspeed=predkosc*kierunek
 
-//ruch 
-if (keyboard_check(ord("D"))or keyboard_check(vk_right))
+if (kierunek!=0)
 {
-hspeed+=predkosc;
+image_xscale=kierunek;
 }
 
-if (keyboard_check(ord("A")) or keyboard_check(vk_left))
-{
-hspeed-=predkosc;
-}
-
-
-//wolniej(xD)
-if (keyboard_check_released(ord("A")) or keyboard_check(vk_left))
-{
-while (hspeed!=0)
-hspeed+=wolniej
-}
-
-if (keyboard_check_released(ord("D")) or keyboard_check(vk_right))
-{
-while (hspeed!=0)
-hspeed-=wolniej
-}
+//xD
 
 //grawitacja
 if (place_free(x,y+vspeed))
@@ -43,13 +28,9 @@ if (place_meeting(x,y+vspeed,o_blok))
 			if (place_meeting(x,y+1,o_blok))
 			vspeed-=skok;
 		}
-		
-//kierunek
-kierunek=(keyboard_check(ord("D"))-keyboard_check(ord("A")));
 
-if (kierunek!=0)
-{
-image_xscale=kierunek;
-}
+
+
+camera_set_view_pos(view_camera[0],x-(view_wport[0]/2),y-(view_hport[0]/2));
 
 
