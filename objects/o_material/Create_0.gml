@@ -15,7 +15,7 @@ for(j=100;j>=0;j--)
 	}
 }
 
-nn=100
+nn=100 //indeks wybranego wezla
 
 roz=50
 rozz=50
