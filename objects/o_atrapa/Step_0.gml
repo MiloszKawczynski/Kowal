@@ -1,7 +1,7 @@
-y=o_kowal.y+o_kowal.vspeed;
+y=o_kowal.y+o_kowal.vspeed+15;
 if (o_kowal.kierunek!=0)
 {
-x=o_kowal.x+45*o_kowal.kierunek;
+x=o_kowal.x-22*o_kowal.kierunek;
 xs=o_kowal.kierunek;
 }
 

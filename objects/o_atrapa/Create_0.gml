@@ -1,5 +1,5 @@
-y=o_kowal.y;
-x=o_kowal.x+45;
+y=o_kowal.y+15;
+x=o_kowal.x-22;
 
 sprite_index=global.spr_custom
 xs=1

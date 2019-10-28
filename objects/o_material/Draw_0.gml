@@ -7,6 +7,7 @@
 
 draw_set_color(c_dkgray)
 draw_circle(global.tx[nn],global.ty[nn],roz,1)
+draw_rectangle(800-roz/2,450-roz/2,800+roz/2,450+roz/2,0)
 draw_circle(800,450,13,0)
 
 for(j=100;j>=i;j--)
@@ -22,15 +23,6 @@ for(j=100;j>=i;j--)
 		sg=global.tg[j]/4;
 		draw_rectangle(sx-sg,sy-sg,sx+sg,sy+sg,0)
 		draw_rectangle(global.tx[j]-sg,global.ty[j]-sg,global.tx[j]+sg,global.ty[j]+sg,0)
-		
-		//test
-		//sx2=abs(global.tx[j]-sx)
-		//sy2=abs(global.ty[j]-sy)
-		sx2=10
-		sy2=10
-		//draw_rectangle(sx-sx2,sy-sy2,sx+sx2,sy+sy2,global.tg[j]/4)
-		//draw_circle(global.tx[j],global.ty[j],global.tg[j]/7.69,0)
-		//test
 		
 		draw_set_color(c_blue)
 		draw_line_width(global.tx[j],global.ty[j],global.tx[global.tp[j,jj]],global.ty[global.tp[j,jj]],5)
