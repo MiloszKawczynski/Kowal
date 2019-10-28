@@ -14,8 +14,20 @@ for(j=100;j>=i;j--)
 	for(jj=0;jj<global.tp[j,jj]!=0;jj++)
 	{
 		draw_set_color(c_dkgray)
-		draw_line_width(global.tx[j],global.ty[j],global.tx[global.tp[j,jj]],global.ty[global.tp[j,jj]],global.tg[j]/4)
+		//draw_line_width(global.tx[j],global.ty[j],global.tx[global.tp[j,jj]],global.ty[global.tp[j,jj]],global.tg[j]/4)
 		draw_circle(global.tx[j],global.ty[j],global.tg[j]/7.69,0)
+		
+		//test
+		sx=abs(global.tx[j]-global.tx[global.tp[j,jj]]);
+		sy=abs(global.ty[j]-global.ty[global.tp[j,jj]]);
+		//sx2=abs(global.tx[j]-sx)
+		//sy2=abs(global.ty[j]-sy)
+		sx2=10
+		sy2=10
+		draw_rectangle(sx-sx2,sy-sy2,sx+sx2,sy+sy2,global.tg[j]/4)
+		draw_circle(global.tx[j],global.ty[j],global.tg[j]/7.69,0)
+		//test
+		
 		draw_set_color(c_blue)
 		draw_line_width(global.tx[j],global.ty[j],global.tx[global.tp[j,jj]],global.ty[global.tp[j,jj]],5)
 	}
