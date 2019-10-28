@@ -1,4 +1,4 @@
-y=o_kowal.y;
+y=o_kowal.y+o_kowal.vspeed;
 if (o_kowal.kierunek!=0)
 {
 x=o_kowal.x+45*o_kowal.kierunek;
