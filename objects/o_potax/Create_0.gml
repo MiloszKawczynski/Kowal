@@ -19,8 +19,8 @@ part_type_direction(global.iskry,0,360,0,12); //Nadaje particlowi kierunek
 part_type_gravity(global.iskry,0,0); //Nadaje particlowi grawitację
 part_type_orientation(global.iskry,0,0,0,0,true); //Nadaje particlowi orientację
 
-//part_type_colour2(global.iskry,bialy,pomarancz); //Nadaje particlowi kolor z losowej mieszanki tych dwóch (biały i czarny może dać wszystkie możliwe odcieni szarości)
-part_type_colour3(global.iskry, pomarancz,bialy,pomarancz); //Nadaje particlowi kolor z losowej mieszanki tych dwóch (biały i czarny może dać wszystkie możliwe odcieni szarości)
+part_type_colour2(global.iskry,bialy,pomarancz); //Nadaje particlowi kolor z losowej mieszanki tych dwóch (biały i czarny może dać wszystkie możliwe odcieni szarości)
+//part_type_colour3(global.iskry, pomarancz,bialy,pomarancz); //Nadaje particlowi kolor z losowej mieszanki tych dwóch (biały i czarny może dać wszystkie możliwe odcieni szarości)
 
 part_type_blend(global.iskry,0);
 

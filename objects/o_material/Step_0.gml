@@ -1,3 +1,29 @@
+if rozgrzanie<=100
+{
+	k_rozgrzanie=merge_color(c_maroon,c_yellow,rozgrzanie/100)
+}
+else
+{
+	k_rozgrzanie=merge_color(c_yellow,c_white,rozgrzanie/100)
+}
+
+if keyboard_check(ord("Q"))
+{
+	if rozgrzanie<200
+	{
+		rozgrzanie++;
+	}
+}
+else
+{
+	if rozgrzanie>0
+	{
+		rozgrzanie--;
+	}
+}
+
+roz=(rozgrzanie*0.45)+50
+
 n=1600
 nn=noone
 
@@ -11,8 +37,8 @@ for(j=100;j>=i;j--)
 }
 
 if mouse_check_button_pressed(mb_left)
-{
-	if n<=roz
+{		
+	if n<=roz and n>wyp
 	{
 		i--
 		global.tx[i]=mouse_x
@@ -25,8 +51,19 @@ if mouse_check_button_pressed(mb_left)
 		global.tg[i]=wysokosc-1
 		roz=rozz
 	}
-	else
+	
+	if n<=wyp
 	{
-		roz+=5
+		global.tg[nn]+=predkosc_rozklepywania
+		roz=rozz
+	}
+}
+
+if mouse_check_button_pressed(mb_right)
+{		
+	if n<=wyp
+	{
+		global.tg[nn]-=predkosc_rozklepywania
+		roz=rozz
 	}
 }

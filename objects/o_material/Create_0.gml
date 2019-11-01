@@ -19,3 +19,13 @@ nn=100 //indeks wybranego wezla
 
 roz=50
 rozz=50
+
+wyp=15
+
+predkosc_rozklepywania=3
+predkosc_zwiekszania_zasiegu=5
+
+k_rozgrzanie=c_dkgray
+k_miecz=c_white
+
+rozgrzanie=0
