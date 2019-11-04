@@ -11,7 +11,7 @@ if keyboard_check(ord("Q"))
 {
 	if rozgrzanie<200
 	{
-		rozgrzanie++;
+		rozgrzanie+=predkosc_zwiekszania_zasiegu;
 	}
 }
 else
@@ -40,16 +40,20 @@ if mouse_check_button_pressed(mb_left)
 {		
 	if n<=roz and n>wyp
 	{
-		i--
-		global.tx[i]=mouse_x
-		global.ty[i]=mouse_y
+		i--;
+		global.tx[i]=mouse_x;
+		global.ty[i]=mouse_y;
 		for(j=0;global.tp[i,j]!=0;j++)
 		{
 		}
-		global.tp[i,j]=nn
-		wysokosc=global.tg[nn]
-		global.tg[i]=wysokosc-1
-		roz=rozz
+		global.tp[i,j]=nn;
+		wysokosc=global.tg[nn];
+		global.tg[i]=wysokosc-1;
+		roz=rozz;
+		for(j=0;global.tp[nn,j]!=0;j++)
+		{
+		}
+		global.tp[nn,j]=i;
 	}
 	
 	if n<=wyp
