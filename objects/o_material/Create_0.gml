@@ -28,4 +28,12 @@ predkosc_zwiekszania_zasiegu=5
 k_rozgrzanie=c_dkgray
 k_miecz=c_white
 
+klasyfikacja=noone
+dlo=0
+
+global.ox1=noone
+global.ox2=noone
+global.oy1=noone
+global.oy2=noone
+
 rozgrzanie=0

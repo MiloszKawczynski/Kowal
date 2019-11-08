@@ -9,8 +9,10 @@
 //draw_text(100,100,roz)
 
 draw_set_color(c_white)
-draw_text(100,100,rozgrzanie)
-draw_text(100,200,roz)
+//draw_text(100,100,rozgrzanie)
+//draw_text(100,200,roz)
+draw_text(100,300,g)
+draw_text(100,400,klasyfikacja)
 
 
 draw_set_color(k_rozgrzanie)
@@ -28,8 +30,12 @@ for(j=100;j>=i;j--)
 		sx=(global.tx[j]+global.tx[global.tp[j,jj]])/2;
 		sy=(global.ty[j]+global.ty[global.tp[j,jj]])/2;
 		sg=global.tg[j]/4;
+		
 		draw_rectangle(sx-sg,sy-sg,sx+sg,sy+sg,0)
 		draw_rectangle(global.tx[j]-sg,global.ty[j]-sg,global.tx[j]+sg,global.ty[j]+sg,0)
+		
+		//draw_roundrect_ext(sx-sg,sy-sg,sx+sg,sy+sg,15,15,0)
+		//draw_roundrect_ext(global.tx[j]-sg,global.ty[j]-sg,global.tx[j]+sg,global.ty[j]+sg,15,15,0)
 		
 		draw_set_color(c_blue)
 		draw_line_width(global.tx[j],global.ty[j],global.tx[global.tp[j,jj]],global.ty[global.tp[j,jj]],5)
@@ -47,6 +53,12 @@ draw_set_color(c_red)
 draw_circle(global.tx[nn],global.ty[nn],roz,1)
 draw_circle(global.tx[nn],global.ty[nn],wyp,1)
 
+
+draw_sprite(sprite4,0,800,450)
+
+
+draw_set_color(c_orange)
+draw_line_width(global.ox1,global.oy1,global.ox2,global.oy2,10)
 
 /*Tworzenie sprite z utworznoego materiału*/
 

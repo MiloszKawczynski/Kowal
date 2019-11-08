@@ -159,6 +159,14 @@
             }
         },
         {
+            "Key": "85b3ef0f-9221-494c-a979-b0bdb97fb03b",
+            "Value": {
+                "id": "4a26e77e-7f50-470a-b24b-79cd4ae65b0c",
+                "resourcePath": "sprites\\sprite4\\sprite4.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "903fc243-82f7-4054-9c5e-765b9b63fd2f",
             "Value": {
                 "id": "6be5f891-bbc4-4b5c-9470-733746fe7538",
@@ -260,6 +268,14 @@
                 "id": "c6281ac3-1aec-476e-80b3-2fd7f18dacc9",
                 "resourcePath": "sprites\\default_1\\default_1.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "fceb135f-f883-4ac3-b5d7-0b335c67bc2b",
+            "Value": {
+                "id": "2e7e1ef7-70e8-478a-821c-e6016497ba08",
+                "resourcePath": "objects\\o_znacznik_wezla\\o_znacznik_wezla.yy",
+                "resourceType": "GMObject"
             }
         },
         {
