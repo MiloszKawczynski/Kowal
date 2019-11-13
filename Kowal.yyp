@@ -87,6 +87,14 @@
             }
         },
         {
+            "Key": "3b169458-4779-44fe-b845-81ca4cdb7200",
+            "Value": {
+                "id": "68a65def-5ba1-4606-a6f9-21b4938e1d19",
+                "resourcePath": "objects\\o_qte\\o_qte.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "482070fb-e85d-4aac-b637-702fa0858912",
             "Value": {
                 "id": "09a647c4-a1db-4f76-8f3b-7d0835d1c7b1",
@@ -175,6 +183,14 @@
             }
         },
         {
+            "Key": "971a7c52-7f9f-47d8-98b1-20debd07203f",
+            "Value": {
+                "id": "2bd1c44f-ba19-4ec6-8cf8-27510db5d5d9",
+                "resourcePath": "rooms\\room3\\room3.yy",
+                "resourceType": "GMRoom"
+            }
+        },
+        {
             "Key": "9b8f8bcf-52ce-4ed3-9622-f17133bc4844",
             "Value": {
                 "id": "4cc8b89b-ed43-4dd4-b68b-7a8789b12bb8",
@@ -188,6 +204,14 @@
                 "id": "a4fd32af-acef-41a6-a407-b36db89a6fa9",
                 "resourcePath": "options\\linux\\options_linux.yy",
                 "resourceType": "GMLinuxOptions"
+            }
+        },
+        {
+            "Key": "b020c09c-8f3a-4e41-bb42-93d1f2371940",
+            "Value": {
+                "id": "9b79ddd5-4beb-426d-ad2b-bf43ea63da91",
+                "resourcePath": "sprites\\sprite6\\sprite6.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
