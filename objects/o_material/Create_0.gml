@@ -28,8 +28,9 @@ predkosc_zwiekszania_zasiegu=5
 k_rozgrzanie=c_dkgray
 k_miecz=c_white
 
-klasyfikacja=noone
+klasyfikacja="sztylet"
 dlo=0
+waga=0
 
 global.ox1=noone
 global.ox2=noone

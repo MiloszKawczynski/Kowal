@@ -6,7 +6,11 @@ if(keyboard_check_pressed(guzik))
 	{wynik=abs(x-wspol_x)/seksapil/2}
 	else {wynik=100}
 	hspeed=0
+	alarm[0]=odstemp;
 }
 
 
-	
+if keyboard_check_pressed(ord("R"))
+{
+	room_restart()
+}

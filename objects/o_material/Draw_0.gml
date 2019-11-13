@@ -13,12 +13,16 @@ if debug==true
 	draw_set_color(c_white)
 	//draw_text(100,100,rozgrzanie)
 	//draw_text(100,200,roz)
-	draw_text(100,300,g)
-	draw_text(100,400,klasyfikacja)
-	draw_text(100,500,przegrzanie)
+	//draw_text(100,300,g)
+	draw_text(100,100,"Klasyfikacja")
+	draw_text(100+string_width("klasyfikacja: "),100,klasyfikacja)
+	draw_text(100,200,"Dlugosc ostrza")
+	draw_text(100+string_width("Dlugosc ostrza: "),200,dlo)
+	draw_text(100,300,"Waga")
+	draw_text(100+string_width("Waga: "),300,waga)
 }
 
-if przegrzanie>30 {draw_sprite(sprite5,0,100,600)}
+if przegrzanie>30 {draw_sprite_ext(sprite5,0,100,400,5,5,0,c_white,1)}
 
 draw_set_color(k_rozgrzanie)
 draw_rectangle(800-global.tg[100]/4,450-global.tg[100]/4,800+global.tg[100]/4,450+global.tg[100]/4,0)
@@ -113,5 +117,5 @@ for(j=100;j>=i;j--)
 	global.spr_custom = sprite_create_from_surface(surf, 0, 0, 1600, 900, true, false, 800, 450);
 	surface_reset_target();
 	surface_free(surf);
-	room_goto(room1)
+	room_goto(room3)
 }

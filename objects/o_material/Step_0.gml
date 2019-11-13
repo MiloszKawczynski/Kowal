@@ -68,7 +68,7 @@ if kucie==true
 
 	roz=(rozgrzanie*0.45)+50
 
-	//sprawdzanie najbliższego myszcze węzła
+	//sprawdzanie najbliższego myszce węzła
 
 	n=1600
 	nn=noone
@@ -82,7 +82,7 @@ if kucie==true
 		}
 	}
 
-	//sprawdzanie najwiekszej odległosći między węzłami
+	//sprawdzanie dkuosci ostrza, wagi broni, klasyfikacji broni
 
 	for(j=100;j>=i;j--)
 	{
@@ -91,9 +91,12 @@ if kucie==true
 
 	g=0
 	dlo=0
+	waga=0
 
 	for(j=100;j>=i;j--)
 	{
+		waga+=global.tg[j]
+		
 		for(jj=100;jj>=i;jj--)
 		{
 			if point_distance(global.tx[j],global.ty[j],global.tx[jj],global.ty[jj])>g
@@ -116,8 +119,6 @@ if kucie==true
 	}
 
 	instance_destroy(o_znacznik_wezla)
-
-	//Klasyfikacja stworzonej broni
 
 	if g>0
 	{
