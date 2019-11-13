@@ -31,3 +31,8 @@ for(i=100;i>10;i--)
 }
 
 diro=point_direction(o_kowal.x+((global.tx[ostp[1]]-800)*image_xscale)-22*xs,o_kowal.y+((global.ty[ostp[1]]-450)*image_yscale)+15,o_kowal.x+((ostx[1]-800)*image_xscale)-22*xs,o_kowal.y+((osty[1]-450)*image_yscale)+15)
+
+dmg_c=10
+dmg_d=15
+
+//morek nie titluj się to są przykładowe zmienne

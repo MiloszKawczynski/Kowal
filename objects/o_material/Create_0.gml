@@ -37,3 +37,8 @@ global.oy1=noone
 global.oy2=noone
 
 rozgrzanie=0
+przegrzanie=0
+
+kucie=true;
+
+debug=false;

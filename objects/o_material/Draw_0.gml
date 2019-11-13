@@ -8,12 +8,17 @@
 //draw_set_color(c_white)
 //draw_text(100,100,roz)
 
-draw_set_color(c_white)
-//draw_text(100,100,rozgrzanie)
-//draw_text(100,200,roz)
-draw_text(100,300,g)
-draw_text(100,400,klasyfikacja)
+if debug==true
+{
+	draw_set_color(c_white)
+	//draw_text(100,100,rozgrzanie)
+	//draw_text(100,200,roz)
+	draw_text(100,300,g)
+	draw_text(100,400,klasyfikacja)
+	draw_text(100,500,przegrzanie)
+}
 
+if przegrzanie>30 {draw_sprite(sprite5,0,100,600)}
 
 draw_set_color(k_rozgrzanie)
 draw_rectangle(800-global.tg[100]/4,450-global.tg[100]/4,800+global.tg[100]/4,450+global.tg[100]/4,0)
@@ -37,28 +42,44 @@ for(j=100;j>=i;j--)
 		//draw_roundrect_ext(sx-sg,sy-sg,sx+sg,sy+sg,15,15,0)
 		//draw_roundrect_ext(global.tx[j]-sg,global.ty[j]-sg,global.tx[j]+sg,global.ty[j]+sg,15,15,0)
 		
-		draw_set_color(c_blue)
-		draw_line_width(global.tx[j],global.ty[j],global.tx[global.tp[j,jj]],global.ty[global.tp[j,jj]],5)
+		if debug==true
+		{
+			draw_set_color(c_blue)
+			draw_line_width(global.tx[j],global.ty[j],global.tx[global.tp[j,jj]],global.ty[global.tp[j,jj]],5)
+		}
 	}
 }
 
-for(j=100;j>=i;j--)
+if debug==true
 {
-	if j==nn {draw_set_color(c_yellow)}
-	else {draw_set_color(c_blue)}
-	draw_circle(global.tx[j],global.ty[j],6,0)
+	for(j=100;j>=i;j--)
+	{
+		if j==nn {draw_set_color(c_yellow)}
+		else {draw_set_color(c_blue)}
+		draw_circle(global.tx[j],global.ty[j],6,0)
+	}
 }
 
-draw_set_color(c_red)
-draw_circle(global.tx[nn],global.ty[nn],roz,1)
-draw_circle(global.tx[nn],global.ty[nn],wyp,1)
+if kucie==true
+{
+	draw_set_color(c_red)
+	draw_circle(global.tx[nn],global.ty[nn],roz,1)
+	draw_circle(global.tx[nn],global.ty[nn],wyp,1)
+}
 
 
-draw_sprite(sprite4,0,800,450)
+//draw_sprite(sprite4,0,800,450)
 
+if kucie==false
+{
+	draw_rectangle_color(((nmx+nwx)/2)-32,0,((nmx+nwx)/2)+32,900,c_black,c_black,c_black,c_black,0)
+}
 
-draw_set_color(c_orange)
-draw_line_width(global.ox1,global.oy1,global.ox2,global.oy2,10)
+if debug==true
+{
+	draw_set_color(c_orange)
+	draw_line_width(global.ox1,global.oy1,global.ox2,global.oy2,10)
+}
 
 /*Tworzenie sprite z utworznoego materiału*/
 
