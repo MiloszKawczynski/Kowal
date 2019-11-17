@@ -114,11 +114,43 @@ if kucie==true
 				global.oy2=global.ty[jj]
 			}
 		
+			for(jjj=100;jjj>=i;jjj--;)
+			{
+				if global.tx[jjj]>=global.ox1-32 and global.tx[jjj]<=global.ox2+32 and global.ty[jjj]>=global.oy1-32 and global.ty[jjj]<=global.oy2+32
+				{
+					ot[jjj]=true;
+				}
+				else
+				{
+					ot[jjj]=false;
+				}
+			}
+			
 			ds_list_destroy(lista);
 		}
 	}
 
 	instance_destroy(o_znacznik_wezla)
+	
+	for(j=100;j>=i;j--)
+	{
+		ost=0
+		for(jj=0;jj<=10;jj++)
+		{
+			if global.tp[j,jj]!=0
+			{
+				ost++
+			}
+		}
+		if ost==1
+		{
+			cz[j]=true;
+		}
+		else
+		{
+			cz[j]=false;
+		}
+	}
 
 	if g>0
 	{
@@ -175,6 +207,22 @@ if kucie==true
 			global.tg[nn]-=predkosc_rozklepywania
 			roz=rozz
 		}
+	}
+}
+else
+{
+	if rozgrzanie>0
+	{
+		rozgrzanie--;
+	}
+	
+	if rozgrzanie<=100
+	{
+		k_rozgrzanie=merge_color(c_maroon,c_yellow,rozgrzanie/100)
+	}
+	else
+	{
+		k_rozgrzanie=merge_color(c_yellow,c_white,rozgrzanie/100)
 	}
 }
 

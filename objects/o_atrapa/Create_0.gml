@@ -36,3 +36,6 @@ dmg_c=10
 dmg_d=15
 
 //morek nie titluj się to są przykładowe zmienne
+
+instance_create_depth(x,y,0,o_atrapa_cz)
+instance_create_depth(x,y,0,o_atrapa_ot)

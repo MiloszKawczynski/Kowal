@@ -43,3 +43,8 @@ przegrzanie=0
 kucie=true;
 
 debug=false;
+
+ost=0
+
+cz[100]=false;
+ot[100]=false;

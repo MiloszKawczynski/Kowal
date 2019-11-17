@@ -119,6 +119,14 @@
             }
         },
         {
+            "Key": "53661c1d-b82c-4d49-8fcd-2fe346cbec8c",
+            "Value": {
+                "id": "bb459b91-17da-40cb-af60-3f0b12f38b88",
+                "resourcePath": "objects\\o_atrapa_cz\\o_atrapa_cz.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "54fdd384-53c7-4f85-a07e-b043413eb279",
             "Value": {
                 "id": "d3041bd4-4dd7-43d4-8d01-e9e40a3f2900",
@@ -196,6 +204,14 @@
                 "id": "4cc8b89b-ed43-4dd4-b68b-7a8789b12bb8",
                 "resourcePath": "views\\9b8f8bcf-52ce-4ed3-9622-f17133bc4844.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "9ee3400a-4f27-4066-868f-f2ddbe1e1550",
+            "Value": {
+                "id": "63565df1-1cdd-4a6e-b40f-c70b828dd079",
+                "resourcePath": "objects\\o_atrapa_ot\\o_atrapa_ot.yy",
+                "resourceType": "GMObject"
             }
         },
         {
