@@ -95,6 +95,14 @@
             }
         },
         {
+            "Key": "3fab011f-af2d-4aa1-b3c8-2f5dc67b5327",
+            "Value": {
+                "id": "baa534e5-a32f-4f72-aa35-1c567398eb5b",
+                "resourcePath": "objects\\o_wrog\\o_wrog.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "482070fb-e85d-4aac-b637-702fa0858912",
             "Value": {
                 "id": "09a647c4-a1db-4f76-8f3b-7d0835d1c7b1",

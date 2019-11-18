@@ -25,6 +25,17 @@ if (place_meeting(x,y+vspeed,o_blok))
     vspeed=0;
 }
 
+//kolizja pozioma
+if (place_meeting(x+hspeed,y,o_blok))
+{
+    while(!place_meeting(x,y+sign(hspeed),o_blok))
+	{
+        x+=sign(hspeed);
+	}
+    hspeed=0;
+}
+
+
 
 //skok
 		if (keyboard_check_pressed(ord("W")) or keyboard_check(vk_up))
