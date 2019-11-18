@@ -28,10 +28,11 @@ if (place_meeting(x,y+vspeed,o_blok))
 //kolizja pozioma
 if (place_meeting(x+hspeed,y,o_blok))
 {
-    while(!place_meeting(x,y+sign(hspeed),o_blok))
+    while(!place_meeting(x+sign(hspeed),y,o_blok))
 	{
         x+=sign(hspeed);
 	}
+	x-=sign(hspeed)*3;
     hspeed=0;
 }
 

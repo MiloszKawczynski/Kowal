@@ -16,21 +16,21 @@ for(i=100;i>10;i--)
 	ost=0
 	for(j=0;j<=10;j++)
 	{
-		if global.tp[i,j]!=0
+		if global.tablicapolaczen[i,j]!=0
 		{
 			ost++
-			ostp[o]=global.tp[i,j]
+			ostp[o]=global.tablicapolaczen[i,j]
 		}
 	}
 	if ost==1
 	{
-		ostx[o]=global.tx[i]
-		osty[o]=global.ty[i]
+		ostx[o]=global.tablicapozycjix[i]
+		osty[o]=global.tablicapozycjiy[i]
 		o++;
 	}
 }
 
-diro=point_direction(o_kowal.x+((global.tx[ostp[1]]-800)*image_xscale)-22*xs,o_kowal.y+((global.ty[ostp[1]]-450)*image_yscale)+15,o_kowal.x+((ostx[1]-800)*image_xscale)-22*xs,o_kowal.y+((osty[1]-450)*image_yscale)+15)
+diro=point_direction(o_kowal.x+((global.tablicapozycjix[ostp[1]]-800)*image_xscale)-22*xs,o_kowal.y+((global.tablicapozycjiy[ostp[1]]-450)*image_yscale)+15,o_kowal.x+((ostx[1]-800)*image_xscale)-22*xs,o_kowal.y+((osty[1]-450)*image_yscale)+15)
 
 dmg_c=10
 dmg_d=15

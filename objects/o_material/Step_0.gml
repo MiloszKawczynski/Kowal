@@ -42,24 +42,24 @@ if kucie==true
 	
 		for(j=100;j>=i;j--)
 		{
-			if global.tx[j]<nmx
+			if global.tablicapozycjix[j]<nmx
 			{
-				nmx=global.tx[j];
+				nmx=global.tablicapozycjix[j];
 			}
-			if global.tx[j]>nwx
+			if global.tablicapozycjix[j]>nwx
 			{
-				nwx=global.tx[j];
+				nwx=global.tablicapozycjix[j];
 			}
 		}
 		for(j=100;j>=i;j--)
 		{	
-			if global.tx[j]<(nmx+nwx)/2
+			if global.tablicapozycjix[j]<(nmx+nwx)/2
 			{
-				global.tx[j]-=32;
+				global.tablicapozycjix[j]-=32;
 			}
-			if global.tx[j]>(nmx+nwx)/2
+			if global.tablicapozycjix[j]>(nmx+nwx)/2
 			{
-				global.tx[j]+=32;
+				global.tablicapozycjix[j]+=32;
 			}
 		}
 		kucie=false;
@@ -71,14 +71,14 @@ if kucie==true
 	//sprawdzanie najbliższego myszce węzła
 
 	n=1600
-	nn=noone
+	indeks_wybranego_wezla=noone
 
 	for(j=100;j>=i;j--)
 	{
-		if point_distance(global.tx[j],global.ty[j],mouse_x,mouse_y)<n
+		if point_distance(global.tablicapozycjix[j],global.tablicapozycjiy[j],mouse_x,mouse_y)<n
 		{
-			n=point_distance(global.tx[j],global.ty[j],mouse_x,mouse_y)
-			nn=j
+			n=point_distance(global.tablicapozycjix[j],global.tablicapozycjiy[j],mouse_x,mouse_y)
+			indeks_wybranego_wezla=j
 		}
 	}
 
@@ -86,37 +86,37 @@ if kucie==true
 
 	for(j=100;j>=i;j--)
 	{
-		instance_create_depth(global.tx[j],global.ty[j],10,o_znacznik_wezla)
+		instance_create_depth(global.tablicapozycjix[j],global.tablicapozycjiy[j],10,o_znacznik_wezla)
 	}
 
 	g=0
-	dlo=0
+	dlugosc_ostrza=0
 	waga=0
 
 	for(j=100;j>=i;j--)
 	{
-		waga+=global.tg[j]
+		waga+=global.tablicagrubosc[j]
 		
 		for(jj=100;jj>=i;jj--)
 		{
-			if point_distance(global.tx[j],global.ty[j],global.tx[jj],global.ty[jj])>g
+			if point_distance(global.tablicapozycjix[j],global.tablicapozycjiy[j],global.tablicapozycjix[jj],global.tablicapozycjiy[jj])>g
 			{
-				g=point_distance(global.tx[j],global.ty[j],global.tx[jj],global.ty[jj])
+				g=point_distance(global.tablicapozycjix[j],global.tablicapozycjiy[j],global.tablicapozycjix[jj],global.tablicapozycjiy[jj])
 			}
 		
 			var lista = ds_list_create();
-			if collision_line_list(global.tx[j],global.ty[j],global.tx[jj],global.ty[jj],o_znacznik_wezla,false,true,lista,false)>dlo
+			if collision_line_list(global.tablicapozycjix[j],global.tablicapozycjiy[j],global.tablicapozycjix[jj],global.tablicapozycjiy[jj],o_znacznik_wezla,false,true,lista,false)>dlugosc_ostrza
 			{
-				dlo=collision_line_list(global.tx[j],global.ty[j],global.tx[jj],global.ty[jj],o_znacznik_wezla,false,true,lista,false)
-				global.ox1=global.tx[j]
-				global.oy1=global.ty[j]
-				global.ox2=global.tx[jj]
-				global.oy2=global.ty[jj]
+				dlugosc_ostrza=collision_line_list(global.tablicapozycjix[j],global.tablicapozycjiy[j],global.tablicapozycjix[jj],global.tablicapozycjiy[jj],o_znacznik_wezla,false,true,lista,false)
+				global.ox1=global.tablicapozycjix[j]
+				global.oy1=global.tablicapozycjiy[j]
+				global.ox2=global.tablicapozycjix[jj]
+				global.oy2=global.tablicapozycjiy[jj]
 			}
 		
 			for(jjj=100;jjj>=i;jjj--;)
 			{
-				if global.tx[jjj]>=global.ox1-32 and global.tx[jjj]<=global.ox2+32 and global.ty[jjj]>=global.oy1-32 and global.ty[jjj]<=global.oy2+32
+				if global.tablicapozycjix[jjj]>=global.ox1-32 and global.tablicapozycjix[jjj]<=global.ox2+32 and global.tablicapozycjiy[jjj]>=global.oy1-32 and global.tablicapozycjiy[jjj]<=global.oy2+32
 				{
 					ot[jjj]=true;
 				}
@@ -137,7 +137,7 @@ if kucie==true
 		ost=0
 		for(jj=0;jj<=10;jj++)
 		{
-			if global.tp[j,jj]!=0
+			if global.tablicapolaczen[j,jj]!=0
 			{
 				ost++
 			}
@@ -154,7 +154,7 @@ if kucie==true
 
 	if g>0
 	{
-		klasyfikacja="Sztylet"
+		klasyfikacja="Sztablicapozycjiylet"
 	}
 	if g>200
 	{
@@ -176,24 +176,24 @@ if kucie==true
 		if n<=roz and n>wyp
 		{
 			i--;
-			global.tx[i]=mouse_x;
-			global.ty[i]=mouse_y;
-			for(j=0;global.tp[i,j]!=0;j++)
+			global.tablicapozycjix[i]=mouse_x;
+			global.tablicapozycjiy[i]=mouse_y;
+			for(j=0;global.tablicapolaczen[i,j]!=0;j++)
 			{
 			}
-			global.tp[i,j]=nn;
-			wysokosc=global.tg[nn];
-			global.tg[i]=wysokosc-1;
+			global.tablicapolaczen[i,j]=indeks_wybranego_wezla;
+			wysokosc=global.tablicagrubosc[indeks_wybranego_wezla];
+			global.tablicagrubosc[i]=wysokosc-1;
 			roz=rozz;
-			for(j=0;global.tp[nn,j]!=0;j++)
+			for(j=0;global.tablicapolaczen[indeks_wybranego_wezla,j]!=0;j++)
 			{
 			}
-			global.tp[nn,j]=i;
+			global.tablicapolaczen[indeks_wybranego_wezla,j]=i;
 		}
 	
 		if n<=wyp
 		{
-			global.tg[nn]+=predkosc_rozklepywania
+			global.tablicagrubosc[indeks_wybranego_wezla]+=predkosc_rozklepywania
 			roz=rozz
 		}
 	}
@@ -204,7 +204,7 @@ if kucie==true
 	{		
 		if n<=wyp
 		{
-			global.tg[nn]-=predkosc_rozklepywania
+			global.tablicagrubosc[indeks_wybranego_wezla]-=predkosc_rozklepywania
 			roz=rozz
 		}
 	}
@@ -234,4 +234,9 @@ if keyboard_check_pressed(ord("R"))
 if keyboard_check_pressed(ord("D"))
 {
 	if debug==false {debug=true} else{debug=false}
+}
+
+if keyboard_check_pressed(ord("S"))
+{
+	if szablon==false {szablon=true} else{szablon=false}
 } 

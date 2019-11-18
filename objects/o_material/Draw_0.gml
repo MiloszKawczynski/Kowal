@@ -1,8 +1,8 @@
 //for(j=100;j>=i;j--)
 //{
-//	if j==nn {draw_set_color(c_yellow)}
+//	if j==indeks_wybranego_wezla {draw_set_color(c_yellow)}
 //	else {draw_set_color(c_blue)}
-//	draw_circle(tx[j],ty[j],3,0)
+//	draw_circle(tablicapozycjix[j],tablicapozycjiy[j],3,0)
 //}
 
 //draw_set_color(c_white)
@@ -17,7 +17,7 @@ if debug==true
 	draw_text(100,100,"Klasyfikacja")
 	draw_text(100+string_width("klasyfikacja: "),100,klasyfikacja)
 	draw_text(100,200,"Dlugosc ostrza")
-	draw_text(100+string_width("Dlugosc ostrza: "),200,dlo)
+	draw_text(100+string_width("Dlugosc ostrza: "),200,dlugosc_ostrza)
 	draw_text(100,300,"Waga")
 	draw_text(100+string_width("Waga: "),300,waga)
 }
@@ -25,11 +25,11 @@ if debug==true
 if przegrzanie>30 {draw_sprite_ext(sprite5,0,100,400,5,5,0,c_white,1)}
 
 draw_set_color(k_rozgrzanie)
-draw_rectangle(800-global.tg[100]/4,450-global.tg[100]/4,800+global.tg[100]/4,450+global.tg[100]/4,0)
+draw_rectangle(800-global.tablicagrubosc[100]/4,450-global.tablicagrubosc[100]/4,800+global.tablicagrubosc[100]/4,450+global.tablicagrubosc[100]/4,0)
 
 for(j=100;j>=i;j--)
 {
-	for(jj=0;jj<global.tp[j,jj]!=0;jj++)
+	for(jj=0;jj<global.tablicapolaczen[j,jj]!=0;jj++)
 	{
 		if debug==true
 		{
@@ -52,23 +52,23 @@ for(j=100;j>=i;j--)
 			draw_set_color(k_rozgrzanie)
 		}
 		
-		draw_line_width(global.tx[j],global.ty[j],global.tx[global.tp[j,jj]],global.ty[global.tp[j,jj]],global.tg[j]/4)
-		draw_circle(global.tx[j],global.ty[j],global.tg[j]/7.69,0)
+		draw_line_width(global.tablicapozycjix[j],global.tablicapozycjiy[j],global.tablicapozycjix[global.tablicapolaczen[j,jj]],global.tablicapozycjiy[global.tablicapolaczen[j,jj]],global.tablicagrubosc[j]/4)
+		draw_circle(global.tablicapozycjix[j],global.tablicapozycjiy[j],global.tablicagrubosc[j]/7.69,0)
 		
-		sx=(global.tx[j]+global.tx[global.tp[j,jj]])/2;
-		sy=(global.ty[j]+global.ty[global.tp[j,jj]])/2;
-		sg=global.tg[j]/4;
+		sx=(global.tablicapozycjix[j]+global.tablicapozycjix[global.tablicapolaczen[j,jj]])/2;
+		sy=(global.tablicapozycjiy[j]+global.tablicapozycjiy[global.tablicapolaczen[j,jj]])/2;
+		sg=global.tablicagrubosc[j]/4;
 		
 		draw_rectangle(sx-sg,sy-sg,sx+sg,sy+sg,0)
-		draw_rectangle(global.tx[j]-sg,global.ty[j]-sg,global.tx[j]+sg,global.ty[j]+sg,0)
+		draw_rectangle(global.tablicapozycjix[j]-sg,global.tablicapozycjiy[j]-sg,global.tablicapozycjix[j]+sg,global.tablicapozycjiy[j]+sg,0)
 		
 		//draw_roundrect_ext(sx-sg,sy-sg,sx+sg,sy+sg,15,15,0)
-		//draw_roundrect_ext(global.tx[j]-sg,global.ty[j]-sg,global.tx[j]+sg,global.ty[j]+sg,15,15,0)
+		//draw_roundrect_ext(global.tablicapozycjix[j]-sg,global.tablicapozycjiy[j]-sg,global.tablicapozycjix[j]+sg,global.tablicapozycjiy[j]+sg,15,15,0)
 		
 		if debug==true
 		{
 			draw_set_color(c_blue)
-			draw_line_width(global.tx[j],global.ty[j],global.tx[global.tp[j,jj]],global.ty[global.tp[j,jj]],5)
+			draw_line_width(global.tablicapozycjix[j],global.tablicapozycjiy[j],global.tablicapozycjix[global.tablicapolaczen[j,jj]],global.tablicapozycjiy[global.tablicapolaczen[j,jj]],5)
 		}
 	}
 }
@@ -77,17 +77,17 @@ if debug==true
 {
 	for(j=100;j>=i;j--)
 	{
-		if j==nn {draw_set_color(c_yellow)}
+		if j==indeks_wybranego_wezla {draw_set_color(c_yellow)}
 		else {draw_set_color(c_blue)}
-		draw_circle(global.tx[j],global.ty[j],6,0)
+		draw_circle(global.tablicapozycjix[j],global.tablicapozycjiy[j],6,0)
 	}
 }
 
 if kucie==true
 {
 	draw_set_color(c_red)
-	draw_circle(global.tx[nn],global.ty[nn],roz,1)
-	draw_circle(global.tx[nn],global.ty[nn],wyp,1)
+	draw_circle(global.tablicapozycjix[indeks_wybranego_wezla],global.tablicapozycjiy[indeks_wybranego_wezla],roz,1)
+	draw_circle(global.tablicapozycjix[indeks_wybranego_wezla],global.tablicapozycjiy[indeks_wybranego_wezla],wyp,1)
 }
 
 
@@ -115,22 +115,22 @@ if keyboard_check_pressed(vk_enter)
 	draw_clear_alpha(c_black, 0);
 	
 	draw_set_color(k_miecz)
-	draw_rectangle(800-global.tg[100]/4,450-global.tg[100]/4,800+global.tg[100]/4,450+global.tg[100]/4,0)
+	draw_rectangle(800-global.tablicagrubosc[100]/4,450-global.tablicagrubosc[100]/4,800+global.tablicagrubosc[100]/4,450+global.tablicagrubosc[100]/4,0)
 
 	for(j=100;j>=i;j--)
 	{
-		for(jj=0;jj<global.tp[j,jj]!=0;jj++)
+		for(jj=0;jj<global.tablicapolaczen[j,jj]!=0;jj++)
 		{
 			draw_set_color(k_miecz)
 		
-			draw_line_width(global.tx[j],global.ty[j],global.tx[global.tp[j,jj]],global.ty[global.tp[j,jj]],global.tg[j]/4)
-			draw_circle(global.tx[j],global.ty[j],global.tg[j]/7.69,0)
+			draw_line_width(global.tablicapozycjix[j],global.tablicapozycjiy[j],global.tablicapozycjix[global.tablicapolaczen[j,jj]],global.tablicapozycjiy[global.tablicapolaczen[j,jj]],global.tablicagrubosc[j]/4)
+			draw_circle(global.tablicapozycjix[j],global.tablicapozycjiy[j],global.tablicagrubosc[j]/7.69,0)
 		
-			sx=(global.tx[j]+global.tx[global.tp[j,jj]])/2;
-			sy=(global.ty[j]+global.ty[global.tp[j,jj]])/2;
-			sg=global.tg[j]/4;
+			sx=(global.tablicapozycjix[j]+global.tablicapozycjix[global.tablicapolaczen[j,jj]])/2;
+			sy=(global.tablicapozycjiy[j]+global.tablicapozycjiy[global.tablicapolaczen[j,jj]])/2;
+			sg=global.tablicagrubosc[j]/4;
 			draw_rectangle(sx-sg,sy-sg,sx+sg,sy+sg,0)
-			draw_rectangle(global.tx[j]-sg,global.ty[j]-sg,global.tx[j]+sg,global.ty[j]+sg,0)
+			draw_rectangle(global.tablicapozycjix[j]-sg,global.tablicapozycjiy[j]-sg,global.tablicapozycjix[j]+sg,global.tablicapozycjiy[j]+sg,0)
 		}
 	}
 
@@ -146,23 +146,23 @@ if keyboard_check_pressed(vk_enter)
 	draw_clear_alpha(c_black, 0);
 	
 	draw_set_color(k_miecz)
-	draw_rectangle(800-global.tg[100]/4,450-global.tg[100]/4,800+global.tg[100]/4,450+global.tg[100]/4,0)
+	draw_rectangle(800-global.tablicagrubosc[100]/4,450-global.tablicagrubosc[100]/4,800+global.tablicagrubosc[100]/4,450+global.tablicagrubosc[100]/4,0)
 
 	for(j=100;j>=i;j--)
 	{
-		for(jj=0;jj<global.tp[j,jj]!=0;jj++)
+		for(jj=0;jj<global.tablicapolaczen[j,jj]!=0;jj++)
 		{
 			if cz[j]==true
 			{
 				draw_set_color(c_aqua)
-				draw_line_width(global.tx[j],global.ty[j],global.tx[global.tp[j,jj]],global.ty[global.tp[j,jj]],global.tg[j]/4)
-				draw_circle(global.tx[j],global.ty[j],global.tg[j]/7.69,0)
+				draw_line_width(global.tablicapozycjix[j],global.tablicapozycjiy[j],global.tablicapozycjix[global.tablicapolaczen[j,jj]],global.tablicapozycjiy[global.tablicapolaczen[j,jj]],global.tablicagrubosc[j]/4)
+				draw_circle(global.tablicapozycjix[j],global.tablicapozycjiy[j],global.tablicagrubosc[j]/7.69,0)
 		
-				sx=(global.tx[j]+global.tx[global.tp[j,jj]])/2;
-				sy=(global.ty[j]+global.ty[global.tp[j,jj]])/2;
-				sg=global.tg[j]/4;
+				sx=(global.tablicapozycjix[j]+global.tablicapozycjix[global.tablicapolaczen[j,jj]])/2;
+				sy=(global.tablicapozycjiy[j]+global.tablicapozycjiy[global.tablicapolaczen[j,jj]])/2;
+				sg=global.tablicagrubosc[j]/4;
 				draw_rectangle(sx-sg,sy-sg,sx+sg,sy+sg,0)
-				draw_rectangle(global.tx[j]-sg,global.ty[j]-sg,global.tx[j]+sg,global.ty[j]+sg,0)
+				draw_rectangle(global.tablicapozycjix[j]-sg,global.tablicapozycjiy[j]-sg,global.tablicapozycjix[j]+sg,global.tablicapozycjiy[j]+sg,0)
 			}
 			else
 			{
@@ -185,23 +185,23 @@ if keyboard_check_pressed(vk_enter)
 	draw_clear_alpha(c_black, 0);
 	
 	draw_set_color(k_miecz)
-	draw_rectangle(800-global.tg[100]/4,450-global.tg[100]/4,800+global.tg[100]/4,450+global.tg[100]/4,0)
+	draw_rectangle(800-global.tablicagrubosc[100]/4,450-global.tablicagrubosc[100]/4,800+global.tablicagrubosc[100]/4,450+global.tablicagrubosc[100]/4,0)
 
 	for(j=100;j>=i;j--)
 	{
-		for(jj=0;jj<global.tp[j,jj]!=0;jj++)
+		for(jj=0;jj<global.tablicapolaczen[j,jj]!=0;jj++)
 		{
 			if ot[j]==true
 			{
 				draw_set_color(c_orange)
-				draw_line_width(global.tx[j],global.ty[j],global.tx[global.tp[j,jj]],global.ty[global.tp[j,jj]],global.tg[j]/4)
-				draw_circle(global.tx[j],global.ty[j],global.tg[j]/7.69,0)
+				draw_line_width(global.tablicapozycjix[j],global.tablicapozycjiy[j],global.tablicapozycjix[global.tablicapolaczen[j,jj]],global.tablicapozycjiy[global.tablicapolaczen[j,jj]],global.tablicagrubosc[j]/4)
+				draw_circle(global.tablicapozycjix[j],global.tablicapozycjiy[j],global.tablicagrubosc[j]/7.69,0)
 		
-				sx=(global.tx[j]+global.tx[global.tp[j,jj]])/2;
-				sy=(global.ty[j]+global.ty[global.tp[j,jj]])/2;
-				sg=global.tg[j]/4;
+				sx=(global.tablicapozycjix[j]+global.tablicapozycjix[global.tablicapolaczen[j,jj]])/2;
+				sy=(global.tablicapozycjiy[j]+global.tablicapozycjiy[global.tablicapolaczen[j,jj]])/2;
+				sg=global.tablicagrubosc[j]/4;
 				draw_rectangle(sx-sg,sy-sg,sx+sg,sy+sg,0)
-				draw_rectangle(global.tx[j]-sg,global.ty[j]-sg,global.tx[j]+sg,global.ty[j]+sg,0)
+				draw_rectangle(global.tablicapozycjix[j]-sg,global.tablicapozycjiy[j]-sg,global.tablicapozycjix[j]+sg,global.tablicapozycjiy[j]+sg,0)
 			}
 			else
 			{
@@ -217,4 +217,42 @@ if keyboard_check_pressed(vk_enter)
 	surface_free(surf);
 	
 	room_goto(room3)
+}
+
+if keyboard_check_pressed(vk_shift)
+{
+	var surf;
+	surf = surface_create(1600,900);
+	surface_set_target(surf);
+	draw_clear_alpha(c_black, 0);
+	
+	draw_set_color(k_miecz)
+	draw_rectangle(800-global.tablicagrubosc[100]/4,450-global.tablicagrubosc[100]/4,800+global.tablicagrubosc[100]/4,450+global.tablicagrubosc[100]/4,0)
+
+	for(j=100;j>=i;j--)
+	{
+		for(jj=0;jj<global.tablicapolaczen[j,jj]!=0;jj++)
+		{
+			draw_set_color(k_miecz)
+		
+			draw_line_width(global.tablicapozycjix[j],global.tablicapozycjiy[j],global.tablicapozycjix[global.tablicapolaczen[j,jj]],global.tablicapozycjiy[global.tablicapolaczen[j,jj]],global.tablicagrubosc[j]/4)
+			draw_circle(global.tablicapozycjix[j],global.tablicapozycjiy[j],global.tablicagrubosc[j]/7.69,0)
+		
+			sx=(global.tablicapozycjix[j]+global.tablicapozycjix[global.tablicapolaczen[j,jj]])/2;
+			sy=(global.tablicapozycjiy[j]+global.tablicapozycjiy[global.tablicapolaczen[j,jj]])/2;
+			sg=global.tablicagrubosc[j]/4;
+			draw_rectangle(sx-sg,sy-sg,sx+sg,sy+sg,0)
+			draw_rectangle(global.tablicapozycjix[j]-sg,global.tablicapozycjiy[j]-sg,global.tablicapozycjix[j]+sg,global.tablicapozycjiy[j]+sg,0)
+		}
+	}
+
+	global.zapisanabron = sprite_create_from_surface(surf, 0, 0, 1600, 900, true, false, 0, 0);
+	sprite_save(global.zapisanabron,0,"zapisana.png");
+	surface_reset_target();
+	surface_free(surf);
+}
+
+if szablon==true
+{
+	draw_sprite_general(global.zapisanabron,0,0,0,1600,800,0,0,1,1,0,c_aqua,c_aqua,c_aqua,c_aqua,0.25)
 }

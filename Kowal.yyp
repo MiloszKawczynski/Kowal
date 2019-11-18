@@ -31,6 +31,14 @@
     },
     "resources": [
         {
+            "Key": "0142415b-5520-4bb5-831f-42ea42da337c",
+            "Value": {
+                "id": "e550d693-577a-4a70-a6ce-3ced50da79eb",
+                "resourcePath": "notes\\Miłosz.yy",
+                "resourceType": "GMNotes"
+            }
+        },
+        {
             "Key": "036a5b12-a3be-4a5d-822a-172c6051ddbe",
             "Value": {
                 "id": "b537a22d-5dcf-4994-a762-add1b063e81a",
