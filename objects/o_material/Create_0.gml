@@ -44,6 +44,8 @@ kucie=true;
 
 szablon=false;
 
+gotowiec=false;
+
 debug=false;
 
 ost=0
@@ -52,3 +54,4 @@ cz[100]=false;
 ot[100]=false;
 
 global.zapisanabron=sprite_add("zapisana.png",1,false,false,800,450);
+global.szablon=sprite_add("szablon.png",1,false,false,800,450);

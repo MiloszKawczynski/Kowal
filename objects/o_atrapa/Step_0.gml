@@ -1,8 +1,8 @@
-y=o_kowal.y+o_kowal.vspeed+15;
+y=o_kowal.y+o_kowal.vspeed+przesuniecie_y;
+x=o_kowal.x+(przesuniecie_x*xs);
 
 if (o_kowal.kierunek!=0)
 {
-	x=o_kowal.x-22*o_kowal.kierunek;
 	xs=o_kowal.kierunek;
 	if o_kowal.kierunek=-1
 	{
@@ -21,3 +21,17 @@ image_yscale=0.35
 
 direction=point_direction(x,y,mouse_x,mouse_y)+obr
 image_angle=direction
+
+klatka_animacji=o_kowal.image_index
+
+if mouse_check_button(mb_left)
+{
+	animacja=2
+}
+else
+{
+	animacja=0
+}
+
+przesuniecie_x=tab[klatka_animacji,0+animacja]
+przesuniecie_y=tab[klatka_animacji,1+animacja]

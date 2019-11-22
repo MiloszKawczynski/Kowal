@@ -240,3 +240,8 @@ if keyboard_check_pressed(ord("S"))
 {
 	if szablon==false {szablon=true} else{szablon=false}
 } 
+
+if keyboard_check_pressed(ord("G"))
+{
+	if gotowiec==false {gotowiec=true} else{gotowiec=false}
+} 

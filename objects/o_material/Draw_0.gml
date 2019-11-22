@@ -133,6 +133,8 @@ if keyboard_check_pressed(vk_enter)
 			draw_rectangle(global.tablicapozycjix[j]-sg,global.tablicapozycjiy[j]-sg,global.tablicapozycjix[j]+sg,global.tablicapozycjiy[j]+sg,0)
 		}
 	}
+	
+	draw_sprite_general(global.zapisanabron,0,0,0,1600,800,0,0,1,1,0,k_miecz,k_miecz,k_miecz,k_miecz,0.25)
 
 	global.spr_custom = sprite_create_from_surface(surf, 0, 0, 1600, 900, true, false, 800, 450);
 	surface_reset_target();
@@ -219,40 +221,81 @@ if keyboard_check_pressed(vk_enter)
 	room_goto(room3)
 }
 
-if keyboard_check_pressed(vk_shift)
+if keyboard_check(vk_shift)
 {
-	var surf;
-	surf = surface_create(1600,900);
-	surface_set_target(surf);
-	draw_clear_alpha(c_black, 0);
-	
-	draw_set_color(k_miecz)
-	draw_rectangle(800-global.tablicagrubosc[100]/4,450-global.tablicagrubosc[100]/4,800+global.tablicagrubosc[100]/4,450+global.tablicagrubosc[100]/4,0)
-
-	for(j=100;j>=i;j--)
+	if keyboard_check_pressed(ord("0"))
 	{
-		for(jj=0;jj<global.tablicapolaczen[j,jj]!=0;jj++)
-		{
-			draw_set_color(k_miecz)
-		
-			draw_line_width(global.tablicapozycjix[j],global.tablicapozycjiy[j],global.tablicapozycjix[global.tablicapolaczen[j,jj]],global.tablicapozycjiy[global.tablicapolaczen[j,jj]],global.tablicagrubosc[j]/4)
-			draw_circle(global.tablicapozycjix[j],global.tablicapozycjiy[j],global.tablicagrubosc[j]/7.69,0)
-		
-			sx=(global.tablicapozycjix[j]+global.tablicapozycjix[global.tablicapolaczen[j,jj]])/2;
-			sy=(global.tablicapozycjiy[j]+global.tablicapozycjiy[global.tablicapolaczen[j,jj]])/2;
-			sg=global.tablicagrubosc[j]/4;
-			draw_rectangle(sx-sg,sy-sg,sx+sg,sy+sg,0)
-			draw_rectangle(global.tablicapozycjix[j]-sg,global.tablicapozycjiy[j]-sg,global.tablicapozycjix[j]+sg,global.tablicapozycjiy[j]+sg,0)
-		}
-	}
+		var surf;
+		surf = surface_create(1600,900);
+		surface_set_target(surf);
+		draw_clear_alpha(c_black, 0);
+	
+		draw_set_color(k_miecz)
+		draw_rectangle(800-global.tablicagrubosc[100]/4,450-global.tablicagrubosc[100]/4,800+global.tablicagrubosc[100]/4,450+global.tablicagrubosc[100]/4,0)
 
-	global.zapisanabron = sprite_create_from_surface(surf, 0, 0, 1600, 900, true, false, 0, 0);
-	sprite_save(global.zapisanabron,0,"zapisana.png");
-	surface_reset_target();
-	surface_free(surf);
+		for(j=100;j>=i;j--)
+		{
+			for(jj=0;jj<global.tablicapolaczen[j,jj]!=0;jj++)
+			{
+				draw_set_color(k_miecz)
+		
+				draw_line_width(global.tablicapozycjix[j],global.tablicapozycjiy[j],global.tablicapozycjix[global.tablicapolaczen[j,jj]],global.tablicapozycjiy[global.tablicapolaczen[j,jj]],global.tablicagrubosc[j]/4)
+				draw_circle(global.tablicapozycjix[j],global.tablicapozycjiy[j],global.tablicagrubosc[j]/7.69,0)
+		
+				sx=(global.tablicapozycjix[j]+global.tablicapozycjix[global.tablicapolaczen[j,jj]])/2;
+				sy=(global.tablicapozycjiy[j]+global.tablicapozycjiy[global.tablicapolaczen[j,jj]])/2;
+				sg=global.tablicagrubosc[j]/4;
+				draw_rectangle(sx-sg,sy-sg,sx+sg,sy+sg,0)
+				draw_rectangle(global.tablicapozycjix[j]-sg,global.tablicapozycjiy[j]-sg,global.tablicapozycjix[j]+sg,global.tablicapozycjiy[j]+sg,0)
+			}
+		}
+
+		global.szablon = sprite_create_from_surface(surf, 0, 0, 1600, 900, true, false, 0, 0);
+		sprite_save(global.szablon,0,"szablon.png");
+		surface_reset_target();
+		surface_free(surf);
+	}
+	
+	if keyboard_check_pressed(ord("1"))
+	{
+		var surf;
+		surf = surface_create(1600,900);
+		surface_set_target(surf);
+		draw_clear_alpha(c_black, 0);
+	
+		draw_set_color(k_miecz)
+		draw_rectangle(800-global.tablicagrubosc[100]/4,450-global.tablicagrubosc[100]/4,800+global.tablicagrubosc[100]/4,450+global.tablicagrubosc[100]/4,0)
+
+		for(j=100;j>=i;j--)
+		{
+			for(jj=0;jj<global.tablicapolaczen[j,jj]!=0;jj++)
+			{
+				draw_set_color(k_miecz)
+		
+				draw_line_width(global.tablicapozycjix[j],global.tablicapozycjiy[j],global.tablicapozycjix[global.tablicapolaczen[j,jj]],global.tablicapozycjiy[global.tablicapolaczen[j,jj]],global.tablicagrubosc[j]/4)
+				draw_circle(global.tablicapozycjix[j],global.tablicapozycjiy[j],global.tablicagrubosc[j]/7.69,0)
+		
+				sx=(global.tablicapozycjix[j]+global.tablicapozycjix[global.tablicapolaczen[j,jj]])/2;
+				sy=(global.tablicapozycjiy[j]+global.tablicapozycjiy[global.tablicapolaczen[j,jj]])/2;
+				sg=global.tablicagrubosc[j]/4;
+				draw_rectangle(sx-sg,sy-sg,sx+sg,sy+sg,0)
+				draw_rectangle(global.tablicapozycjix[j]-sg,global.tablicapozycjiy[j]-sg,global.tablicapozycjix[j]+sg,global.tablicapozycjiy[j]+sg,0)
+			}
+		}
+
+		global.zapisanabron = sprite_create_from_surface(surf, 0, 0, 1600, 900, true, false, 0, 0);
+		sprite_save(global.zapisanabron,0,"zapisana.png");
+		surface_reset_target();
+		surface_free(surf);
+	}
 }
 
 if szablon==true
 {
-	draw_sprite_general(global.zapisanabron,0,0,0,1600,800,0,0,1,1,0,c_aqua,c_aqua,c_aqua,c_aqua,0.25)
+	draw_sprite_general(global.szablon,0,0,0,1600,800,0,0,1,1,0,c_aqua,c_aqua,c_aqua,c_aqua,0.25)
+}
+
+if gotowiec==true
+{
+	draw_sprite_general(global.zapisanabron,0,0,0,1600,800,0,0,1,1,0,k_rozgrzanie,k_rozgrzanie,k_rozgrzanie,k_rozgrzanie,1)
 }

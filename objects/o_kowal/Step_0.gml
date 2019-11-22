@@ -39,11 +39,20 @@ if (place_meeting(x+hspeed,y,o_blok))
 
 
 //skok
-		if (keyboard_check_pressed(ord("W")) or keyboard_check(vk_up))
-		{
-			if (place_meeting(x,y+1,o_blok))
-			vspeed-=skok;
-		}
+if (keyboard_check_pressed(ord("W")) or keyboard_check(vk_up))
+{
+	if (place_meeting(x,y+1,o_blok))
+	vspeed-=skok;
+}
+
+if mouse_check_button(mb_left)
+{
+	sprite_index=sprite31;
+}
+else
+{
+	sprite_index=sprite3;
+}
 
 
 
