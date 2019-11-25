@@ -26,7 +26,7 @@ predkosc_rozklepywania=3
 predkosc_zwiekszania_zasiegu=5
 
 k_rozgrzanie=c_dkgray
-k_miecz=c_white
+k_miecz=c_ltgray
 
 klasyfikacja="sztylet"
 dlugosc_ostrza=0

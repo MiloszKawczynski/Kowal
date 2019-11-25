@@ -2,35 +2,35 @@ ost=0
 ostx[10]=noone
 osty[10]=noone
 
-tab[0,0] = 15
-tab[0,1] = -22
+tab[0,0] = -21
+tab[0,1] = 9
 
-tab[1,0] = 15
-tab[1,1] = -22
+tab[1,0] = -21
+tab[1,1] = 9
 
-tab[2,0] = 15
-tab[2,1] = -22
+tab[2,0] = -21
+tab[2,1] = 9
 
-tab[3,0] = 15
-tab[3,1] = -22
+tab[3,0] = -21
+tab[3,1] = 9
 
-tab[4,0] = 15
-tab[4,1] = -22
+tab[4,0] = -21
+tab[4,1] = 9
 
-tab[0,2] = 15
-tab[0,3] = -22
+tab[0,2] = -21
+tab[0,3] = 9
 
-tab[1,2] = 30
-tab[1,3] = -22
+tab[1,2] = -15
+tab[1,3] = 9
 
-tab[2,2] = 50
-tab[2,3] = -22
+tab[2,2] = -3
+tab[2,3] = 9
 
-tab[3,2] = 80
-tab[3,3] = -22
+tab[3,2] = 15
+tab[3,3] = 9
 
-tab[4,2] = 10
-tab[4,3] = -22
+tab[4,2] = -21
+tab[4,3] = 9
 
 przesuniecie_x=15;
 przesuniecie_y=-22;
@@ -64,10 +64,20 @@ for(i=100;i>10;i--)
 
 diro=point_direction(o_kowal.x+((global.tablicapozycjix[ostp[1]]-800)*image_xscale)-22*xs,o_kowal.y+((global.tablicapozycjiy[ostp[1]]-450)*image_yscale)+15,o_kowal.x+((ostx[1]-800)*image_xscale)-22*xs,o_kowal.y+((osty[1]-450)*image_yscale)+15)
 
-dmg_c=10
-dmg_d=15
+dmg_c=global.dc/25
+dmg_d=global.dd*300
+
+szybkosc_ciecia=1
+stan_ciecia=0
+przyspieszenie_ciecia=1
+opuznienie_ciecia=0.5
+granica_ciecia=10
+
+animacja=0
 
 //morek nie titluj się to są przykładowe zmienne
 
 instance_create_depth(x,y,0,o_atrapa_cz)
 instance_create_depth(x,y,0,o_atrapa_ot)
+
+alarm[0]=-1

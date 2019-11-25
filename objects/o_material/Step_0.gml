@@ -21,6 +21,7 @@ if kucie==true
 		{
 			rozgrzanie=200
 			przegrzanie++;
+			
 		}
 	}
 	else
@@ -35,7 +36,7 @@ if kucie==true
 		}
 	}
 
-	if przegrzanie>60 
+	if przegrzanie>90
 	{
 		nmx=1600;
 		nwx=0

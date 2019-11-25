@@ -47,7 +47,7 @@ if (keyboard_check_pressed(ord("W")) or keyboard_check(vk_up))
 
 if mouse_check_button(mb_left)
 {
-	sprite_index=sprite31;
+	sprite_index=sprite3;
 }
 else
 {

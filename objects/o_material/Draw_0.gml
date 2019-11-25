@@ -95,7 +95,8 @@ if kucie==true
 
 if kucie==false
 {
-	draw_rectangle_color(((nmx+nwx)/2)-32,0,((nmx+nwx)/2)+32,900,c_black,c_black,c_black,c_black,0)
+	draw_sprite_part_ext(sprite71,0,((nmx+nwx)/2)-32,0,64,900,((nmx+nwx)/2)-32,0,1,1,c_white,1)
+	//draw_rectangle_color(((nmx+nwx)/2)-32,0,((nmx+nwx)/2)+32,900,c_black,c_black,c_black,c_black,0)
 }
 
 if debug==true
@@ -134,8 +135,11 @@ if keyboard_check_pressed(vk_enter)
 		}
 	}
 	
-	draw_sprite_general(global.zapisanabron,0,0,0,1600,800,0,0,1,1,0,k_miecz,k_miecz,k_miecz,k_miecz,0.25)
-
+	if gotowiec==true
+	{
+		draw_sprite_general(global.zapisanabron,0,0,0,1600,800,0,0,1,1,0,k_miecz,k_miecz,k_miecz,k_miecz,0.25)
+	}
+	
 	global.spr_custom = sprite_create_from_surface(surf, 0, 0, 1600, 900, true, false, 800, 450);
 	surface_reset_target();
 	surface_free(surf);
@@ -217,6 +221,9 @@ if keyboard_check_pressed(vk_enter)
 	global.spr_custom_ot = sprite_create_from_surface(surf, 0, 0, 1600, 900, true, false, 800, 450);
 	surface_reset_target();
 	surface_free(surf);
+	
+	global.dc=waga/dlugosc_ostrza
+	global.dd=dlugosc_ostrza/waga
 	
 	room_goto(room3)
 }
