@@ -155,7 +155,7 @@ if kucie==true
 
 	if g>0
 	{
-		klasyfikacja="Sztablicapozycjiylet"
+		klasyfikacja="Sztylet"
 	}
 	if g>200
 	{
@@ -173,29 +173,44 @@ if kucie==true
 	//tworzenie i rozklepywanie węzła
 
 	if mouse_check_button_pressed(mb_left)
-	{		
-		if n<=roz and n>wyp
+	{	
+		if gotowiec==false
 		{
-			i--;
-			global.tablicapozycjix[i]=mouse_x;
-			global.tablicapozycjiy[i]=mouse_y;
-			for(j=0;global.tablicapolaczen[i,j]!=0;j++)
+			if n<=roz and n>wyp
 			{
+				i--;
+				global.tablicapozycjix[i]=mouse_x;
+				global.tablicapozycjiy[i]=mouse_y;
+				for(j=0;global.tablicapolaczen[i,j]!=0;j++)
+				{
+				}
+				global.tablicapolaczen[i,j]=indeks_wybranego_wezla;
+				wysokosc=global.tablicagrubosc[indeks_wybranego_wezla];
+				global.tablicagrubosc[i]=wysokosc-1;
+				roz=rozz;
+				for(j=0;global.tablicapolaczen[indeks_wybranego_wezla,j]!=0;j++)
+				{
+				}
+				global.tablicapolaczen[indeks_wybranego_wezla,j]=i;
 			}
-			global.tablicapolaczen[i,j]=indeks_wybranego_wezla;
-			wysokosc=global.tablicagrubosc[indeks_wybranego_wezla];
-			global.tablicagrubosc[i]=wysokosc-1;
-			roz=rozz;
-			for(j=0;global.tablicapolaczen[indeks_wybranego_wezla,j]!=0;j++)
-			{
-			}
-			global.tablicapolaczen[indeks_wybranego_wezla,j]=i;
-		}
 	
-		if n<=wyp
+			if n<=wyp
+			{
+				global.tablicagrubosc[indeks_wybranego_wezla]+=predkosc_rozklepywania
+				roz=rozz
+			}
+		}
+		else
 		{
-			global.tablicagrubosc[indeks_wybranego_wezla]+=predkosc_rozklepywania
-			roz=rozz
+			gotx[ilosc_gotowcow]=global.tablicapozycjix[indeks_wybranego_wezla];
+			goty[ilosc_gotowcow]=global.tablicapozycjiy[indeks_wybranego_wezla];
+			rodzaj_gotowca_postawionego[ilosc_gotowcow]=rodzaj_gotowca;
+			if ilosc_gotowcow<10
+			{
+				ilosc_gotowcow++;
+			}
+			gotowiec=false;
+			postawiony_gotowiec=true;
 		}
 	}
 
@@ -246,3 +261,19 @@ if keyboard_check_pressed(ord("G"))
 {
 	if gotowiec==false {gotowiec=true} else{gotowiec=false}
 } 
+
+if gotowiec==true
+{
+	gotx[ilosc_gotowcow]=global.tablicapozycjix[indeks_wybranego_wezla];
+	goty[ilosc_gotowcow]=global.tablicapozycjiy[indeks_wybranego_wezla];
+	
+	if keyboard_check_pressed(ord("0")) or keyboard_check_pressed(ord("1")) or keyboard_check_pressed(ord("2")) or keyboard_check_pressed(ord("3")) or keyboard_check_pressed(ord("4")) or keyboard_check_pressed(ord("5")) or keyboard_check_pressed(ord("6")) or keyboard_check_pressed(ord("7")) or keyboard_check_pressed(ord("8")) or keyboard_check_pressed(ord("9"))
+	{
+		rodzaj_gotowca=keyboard_lastchar
+	}
+}
+
+if ilosc_gotowcow>=10
+{
+	gotowiec=false;
+}

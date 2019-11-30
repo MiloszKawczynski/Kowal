@@ -64,13 +64,13 @@ for(i=100;i>10;i--)
 
 diro=point_direction(o_kowal.x+((global.tablicapozycjix[ostp[1]]-800)*image_xscale)-22*xs,o_kowal.y+((global.tablicapozycjiy[ostp[1]]-450)*image_yscale)+15,o_kowal.x+((ostx[1]-800)*image_xscale)-22*xs,o_kowal.y+((osty[1]-450)*image_yscale)+15)
 
-dmg_c=global.dc/25
-dmg_d=global.dd*300
+dmg_c=global.dc
+dmg_d=global.dd
+spe_c=global.sc
 
 szybkosc_ciecia=1
 stan_ciecia=0
-przyspieszenie_ciecia=1
-opuznienie_ciecia=0.5
+opuznienie_ciecia=spe_c/16
 granica_ciecia=10
 
 animacja=0

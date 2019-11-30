@@ -111,6 +111,14 @@
             }
         },
         {
+            "Key": "39c02495-3f05-46bd-8b48-0460b5f5ffa8",
+            "Value": {
+                "id": "cbc1675f-d8c5-43c0-b716-5cdb8c27b43f",
+                "resourcePath": "scripts\\scr_zapisywanie_elementow\\scr_zapisywanie_elementow.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "3b169458-4779-44fe-b845-81ca4cdb7200",
             "Value": {
                 "id": "68a65def-5ba1-4606-a6f9-21b4938e1d19",
@@ -400,7 +408,7 @@
         }
     ],
     "script_order": [
-        
+        "39c02495-3f05-46bd-8b48-0460b5f5ffa8"
     ],
     "tutorial": ""
 }

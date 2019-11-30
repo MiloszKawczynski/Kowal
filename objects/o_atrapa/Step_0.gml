@@ -24,13 +24,13 @@ image_angle=direction
 
 klatka_animacji=o_kowal.image_index
 
-if mouse_check_button(mb_left) and !mouse_check_button(mb_right)
+if mouse_check_button_pressed(mb_left) and !mouse_check_button_pressed(mb_right)
 {
 	animacja=2
 	direction=0-diro//+obr
 }
 
-if mouse_check_button_pressed(mb_right) and !mouse_check_button(mb_left)
+if mouse_check_button_pressed(mb_right) and !mouse_check_button_pressed(mb_left)
 {
 	xss=xs;
 	if alarm[0]==-1
@@ -40,7 +40,7 @@ if mouse_check_button_pressed(mb_right) and !mouse_check_button(mb_left)
 	alarm[0]=1
 }
 
-if !mouse_check_button(mb_right) and !mouse_check_button(mb_left)
+if !mouse_check_button_pressed(mb_right) and !mouse_check_button_pressed(mb_left)
 {
 	if alarm[0]==-1
 	{
