@@ -1,2 +1,11 @@
-DMG Cięcia
-DMG Pchnięcia
+Katalog
+0 - Sprite
+1 - Sprite czubków
+2 - Sprite ostrza
+3 - DMG c
+4 - DMG d
+5 - SPD c
+6 - Klasyfikacja
+7 - Dlugość ostrza
+8 - Ilość czubków
+9 - Waga

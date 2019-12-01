@@ -296,9 +296,16 @@ if keyboard_check_pressed(vk_enter)
 	wartosci podane teraz są przykładowe
 	*/
 	
-	global.dc=5
-	global.dd=10
-	global.sc=20
+	global.dc=5;
+	global.dd=10;
+	global.sc=20;
+	
+	//tu w dół jest już moje
+	
+	global.klasyfikacja=klasyfikacja;
+	global.ilosc_czubkow=ilosc_czubkow;
+	global.dlugosc_ostrza=dlugosc_ostrza;
+	global.waga=waga;
 	
 	room_goto(room3)
 }

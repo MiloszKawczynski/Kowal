@@ -62,3 +62,20 @@ if keyboard_check_pressed(ord("R"))
 {
 	game_restart()
 }
+
+if keyboard_check_pressed(vk_enter) 
+{
+	global.ilosc_broni_w_katalogu++;
+	global.katalog[0,global.ilosc_broni_w_katalogu]=global.spr_custom
+	global.katalog[1,global.ilosc_broni_w_katalogu]=global.spr_custom_cz
+	global.katalog[2,global.ilosc_broni_w_katalogu]=global.spr_custom_ot
+	global.katalog[3,global.ilosc_broni_w_katalogu]=global.dc
+	global.katalog[4,global.ilosc_broni_w_katalogu]=global.dd
+	global.katalog[5,global.ilosc_broni_w_katalogu]=global.sc
+	global.katalog[6,global.ilosc_broni_w_katalogu]=global.klasyfikacja
+	global.katalog[7,global.ilosc_broni_w_katalogu]=global.dlugosc_ostrza
+	global.katalog[8,global.ilosc_broni_w_katalogu]=global.ilosc_czubkow
+	global.katalog[9,global.ilosc_broni_w_katalogu]=global.waga
+	global.katalog[10,global.ilosc_broni_w_katalogu]=global.jakosc
+	room_goto(room2)
+}
