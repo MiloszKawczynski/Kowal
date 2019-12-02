@@ -5,3 +5,4 @@ katalog_x=1500;
 katalog_y=700;
 
 katalog=false
+pozycja_w_katalogu=1;

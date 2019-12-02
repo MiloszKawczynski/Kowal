@@ -74,3 +74,4 @@ global.zapisanabron[8]=sprite_add("zapisana8.png",1,false,false,800,450);
 global.zapisanabron[9]=sprite_add("zapisana9.png",1,false,false,800,450);
 
 global.szablon=sprite_add("szablon.png",1,false,false,800,450);
+
