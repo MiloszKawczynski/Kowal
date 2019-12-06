@@ -50,6 +50,8 @@ else
 		file_text_readln(file);
 		global.katalog[11,f]=file_text_read_string(file);
 		file_text_readln(file);
+		global.katalog[12,f]=file_text_read_string(file);
+		file_text_readln(file);
 	}
 	file_text_close(file);
 }

@@ -149,79 +149,37 @@ if debug==true
 
 if keyboard_check_pressed(vk_enter)
 {
-	var surf;
-	surf = surface_create(1600,900);
-	surface_set_target(surf);
-	draw_clear_alpha(c_black, 0);
-	
-	draw_set_color(k_miecz)
-	draw_rectangle(800-global.tablicagrubosc[100]/4,450-global.tablicagrubosc[100]/4,800+global.tablicagrubosc[100]/4,450+global.tablicagrubosc[100]/4,0)
-
-	for(j=100;j>=i;j--)
+	if o_GUI_k.katalog==true
 	{
-		for(jj=0;jj<global.tablicapolaczen[j,jj]!=0;jj++)
-		{
-			draw_set_color(k_miecz)
+		global.spr_custom=sprite_add(global.katalog[11,o_GUI_k.pozycja_w_katalogu]+".png",1,false,false,800,450);
+		global.spr_custom_cz=sprite_add(global.katalog[11,o_GUI_k.pozycja_w_katalogu]+"_cz.png",1,false,false,800,450);
+		global.spr_custom_ot=sprite_add(global.katalog[11,o_GUI_k.pozycja_w_katalogu]+"_ot.png",1,false,false,800,450);
 		
-			draw_line_width(global.tablicapozycjix[j],global.tablicapozycjiy[j],global.tablicapozycjix[global.tablicapolaczen[j,jj]],global.tablicapozycjiy[global.tablicapolaczen[j,jj]],global.tablicagrubosc[j]/4)
-			draw_circle(global.tablicapozycjix[j],global.tablicapozycjiy[j],global.tablicagrubosc[j]/7.69,0)
+		global.dc=global.katalog[3,o_GUI_k.pozycja_w_katalogu];
+		global.dd=global.katalog[4,o_GUI_k.pozycja_w_katalogu];
+		global.sc=global.katalog[5,o_GUI_k.pozycja_w_katalogu];
 		
-			sx=(global.tablicapozycjix[j]+global.tablicapozycjix[global.tablicapolaczen[j,jj]])/2;
-			sy=(global.tablicapozycjiy[j]+global.tablicapozycjiy[global.tablicapolaczen[j,jj]])/2;
-			sg=global.tablicagrubosc[j]/4;
-			draw_rectangle(sx-sg,sy-sg,sx+sg,sy+sg,0)
-			draw_rectangle(global.tablicapozycjix[j]-sg,global.tablicapozycjiy[j]-sg,global.tablicapozycjix[j]+sg,global.tablicapozycjiy[j]+sg,0)
-		}
+		global.diro=global.katalog[12,o_GUI_k.pozycja_w_katalogu]
+		
+		room_goto(room1)
 	}
-	
-	if postawiony_gotowiec==true
+	else
 	{
-		switch (ilosc_gotowcow-1)
-	    {
-	    case 9:
-	        draw_sprite_general(global.zapisanabron[rodzaj_gotowca_postawionego[9]],0,0,0,1600,800,gotx[9]-800,goty[9]-450,1,1,0,k_miecz,k_miecz,k_miecz,k_miecz,1)
-		case 8:
-	        draw_sprite_general(global.zapisanabron[rodzaj_gotowca_postawionego[8]],0,0,0,1600,800,gotx[8]-800,goty[8]-450,1,1,0,k_miecz,k_miecz,k_miecz,k_miecz,1)
-		case 7:
-	        draw_sprite_general(global.zapisanabron[rodzaj_gotowca_postawionego[7]],0,0,0,1600,800,gotx[7]-800,goty[7]-450,1,1,0,k_miecz,k_miecz,k_miecz,k_miecz,1)
-		case 6:
-	        draw_sprite_general(global.zapisanabron[rodzaj_gotowca_postawionego[6]],0,0,0,1600,800,gotx[6]-800,goty[6]-450,1,1,0,k_miecz,k_miecz,k_miecz,k_miecz,1)
-		case 5:
-	        draw_sprite_general(global.zapisanabron[rodzaj_gotowca_postawionego[5]],0,0,0,1600,800,gotx[5]-800,goty[5]-450,1,1,0,k_miecz,k_miecz,k_miecz,k_miecz,1)
-	    case 4:
-	        draw_sprite_general(global.zapisanabron[rodzaj_gotowca_postawionego[4]],0,0,0,1600,800,gotx[4]-800,goty[4]-450,1,1,0,k_miecz,k_miecz,k_miecz,k_miecz,1)
-	    case 3:
-	        draw_sprite_general(global.zapisanabron[rodzaj_gotowca_postawionego[3]],0,0,0,1600,800,gotx[3]-800,goty[3]-450,1,1,0,k_miecz,k_miecz,k_miecz,k_miecz,1)
-		case 2:
-	        draw_sprite_general(global.zapisanabron[rodzaj_gotowca_postawionego[2]],0,0,0,1600,800,gotx[2]-800,goty[2]-450,1,1,0,k_miecz,k_miecz,k_miecz,k_miecz,1)
-		case 1:
-	        draw_sprite_general(global.zapisanabron[rodzaj_gotowca_postawionego[1]],0,0,0,1600,800,gotx[1]-800,goty[1]-450,1,1,0,k_miecz,k_miecz,k_miecz,k_miecz,1)
-		case 0:
-	        draw_sprite_general(global.zapisanabron[rodzaj_gotowca_postawionego[0]],0,0,0,1600,800,gotx[0]-800,goty[0]-450,1,1,0,k_miecz,k_miecz,k_miecz,k_miecz,1)
-	    }
-	}
 	
-	global.spr_custom = sprite_create_from_surface(surf, 0, 0, 1600, 900, true, false, 800, 450);
-	surface_reset_target();
-	surface_free(surf);
+		var surf;
+		surf = surface_create(1600,900);
+		surface_set_target(surf);
+		draw_clear_alpha(c_black, 0);
 	
-//tworzneie spritu czubków
-	
-	var surf;
-	surf = surface_create(1600,900);
-	surface_set_target(surf);
-	draw_clear_alpha(c_black, 0);
-	
-	draw_set_color(k_miecz)
-	draw_rectangle(800-global.tablicagrubosc[100]/4,450-global.tablicagrubosc[100]/4,800+global.tablicagrubosc[100]/4,450+global.tablicagrubosc[100]/4,0)
+		draw_set_color(k_miecz)
+		draw_rectangle(800-global.tablicagrubosc[100]/4,450-global.tablicagrubosc[100]/4,800+global.tablicagrubosc[100]/4,450+global.tablicagrubosc[100]/4,0)
 
-	for(j=100;j>=i;j--)
-	{
-		for(jj=0;jj<global.tablicapolaczen[j,jj]!=0;jj++)
+		for(j=100;j>=i;j--)
 		{
-			if cz[j]==true
+			for(jj=0;jj<global.tablicapolaczen[j,jj]!=0;jj++)
 			{
-				draw_set_color(c_aqua)
+				draw_set_color(k_miecz)
+		
 				draw_line_width(global.tablicapozycjix[j],global.tablicapozycjiy[j],global.tablicapozycjix[global.tablicapolaczen[j,jj]],global.tablicapozycjiy[global.tablicapolaczen[j,jj]],global.tablicagrubosc[j]/4)
 				draw_circle(global.tablicapozycjix[j],global.tablicapozycjiy[j],global.tablicagrubosc[j]/7.69,0)
 		
@@ -231,83 +189,143 @@ if keyboard_check_pressed(vk_enter)
 				draw_rectangle(sx-sg,sy-sg,sx+sg,sy+sg,0)
 				draw_rectangle(global.tablicapozycjix[j]-sg,global.tablicapozycjiy[j]-sg,global.tablicapozycjix[j]+sg,global.tablicapozycjiy[j]+sg,0)
 			}
-			else
-			{
-				draw_set_color(k_rozgrzanie)
-			}
-			
-			draw_set_color(k_miecz)
 		}
-	}
-
-	global.spr_custom_cz = sprite_create_from_surface(surf, 0, 0, 1600, 900, true, false, 800, 450);
-	surface_reset_target();
-	surface_free(surf);
 	
-//tworzneie spritu ostrza
-	
-	var surf;
-	surf = surface_create(1600,900);
-	surface_set_target(surf);
-	draw_clear_alpha(c_black, 0);
-	
-	draw_set_color(k_miecz)
-	draw_rectangle(800-global.tablicagrubosc[100]/4,450-global.tablicagrubosc[100]/4,800+global.tablicagrubosc[100]/4,450+global.tablicagrubosc[100]/4,0)
-
-	for(j=100;j>=i;j--)
-	{
-		for(jj=0;jj<global.tablicapolaczen[j,jj]!=0;jj++)
+		if postawiony_gotowiec==true
 		{
-			if ot[j]==true
-			{
-				draw_set_color(c_orange)
-				draw_line_width(global.tablicapozycjix[j],global.tablicapozycjiy[j],global.tablicapozycjix[global.tablicapolaczen[j,jj]],global.tablicapozycjiy[global.tablicapolaczen[j,jj]],global.tablicagrubosc[j]/4)
-				draw_circle(global.tablicapozycjix[j],global.tablicapozycjiy[j],global.tablicagrubosc[j]/7.69,0)
-		
-				sx=(global.tablicapozycjix[j]+global.tablicapozycjix[global.tablicapolaczen[j,jj]])/2;
-				sy=(global.tablicapozycjiy[j]+global.tablicapozycjiy[global.tablicapolaczen[j,jj]])/2;
-				sg=global.tablicagrubosc[j]/4;
-				draw_rectangle(sx-sg,sy-sg,sx+sg,sy+sg,0)
-				draw_rectangle(global.tablicapozycjix[j]-sg,global.tablicapozycjiy[j]-sg,global.tablicapozycjix[j]+sg,global.tablicapozycjiy[j]+sg,0)
-			}
-			else
-			{
-				draw_set_color(k_rozgrzanie)
-			}
-			
-			draw_set_color(k_miecz)
+			switch (ilosc_gotowcow-1)
+		    {
+		    case 9:
+		        draw_sprite_general(global.zapisanabron[rodzaj_gotowca_postawionego[9]],0,0,0,1600,800,gotx[9]-800,goty[9]-450,1,1,0,k_miecz,k_miecz,k_miecz,k_miecz,1)
+			case 8:
+		        draw_sprite_general(global.zapisanabron[rodzaj_gotowca_postawionego[8]],0,0,0,1600,800,gotx[8]-800,goty[8]-450,1,1,0,k_miecz,k_miecz,k_miecz,k_miecz,1)
+			case 7:
+		        draw_sprite_general(global.zapisanabron[rodzaj_gotowca_postawionego[7]],0,0,0,1600,800,gotx[7]-800,goty[7]-450,1,1,0,k_miecz,k_miecz,k_miecz,k_miecz,1)
+			case 6:
+		        draw_sprite_general(global.zapisanabron[rodzaj_gotowca_postawionego[6]],0,0,0,1600,800,gotx[6]-800,goty[6]-450,1,1,0,k_miecz,k_miecz,k_miecz,k_miecz,1)
+			case 5:
+		        draw_sprite_general(global.zapisanabron[rodzaj_gotowca_postawionego[5]],0,0,0,1600,800,gotx[5]-800,goty[5]-450,1,1,0,k_miecz,k_miecz,k_miecz,k_miecz,1)
+		    case 4:
+		        draw_sprite_general(global.zapisanabron[rodzaj_gotowca_postawionego[4]],0,0,0,1600,800,gotx[4]-800,goty[4]-450,1,1,0,k_miecz,k_miecz,k_miecz,k_miecz,1)
+		    case 3:
+		        draw_sprite_general(global.zapisanabron[rodzaj_gotowca_postawionego[3]],0,0,0,1600,800,gotx[3]-800,goty[3]-450,1,1,0,k_miecz,k_miecz,k_miecz,k_miecz,1)
+			case 2:
+		        draw_sprite_general(global.zapisanabron[rodzaj_gotowca_postawionego[2]],0,0,0,1600,800,gotx[2]-800,goty[2]-450,1,1,0,k_miecz,k_miecz,k_miecz,k_miecz,1)
+			case 1:
+		        draw_sprite_general(global.zapisanabron[rodzaj_gotowca_postawionego[1]],0,0,0,1600,800,gotx[1]-800,goty[1]-450,1,1,0,k_miecz,k_miecz,k_miecz,k_miecz,1)
+			case 0:
+		        draw_sprite_general(global.zapisanabron[rodzaj_gotowca_postawionego[0]],0,0,0,1600,800,gotx[0]-800,goty[0]-450,1,1,0,k_miecz,k_miecz,k_miecz,k_miecz,1)
+		    }
 		}
-	}
+	
+		global.spr_custom = sprite_create_from_surface(surf, 0, 0, 1600, 900, true, false, 800, 450);
+		surface_reset_target();
+		surface_free(surf);
+	
+	//tworzneie spritu czubków
+	
+		var surf;
+		surf = surface_create(1600,900);
+		surface_set_target(surf);
+		draw_clear_alpha(c_black, 0);
+	
+		draw_set_color(k_miecz)
+		draw_rectangle(800-global.tablicagrubosc[100]/4,450-global.tablicagrubosc[100]/4,800+global.tablicagrubosc[100]/4,450+global.tablicagrubosc[100]/4,0)
 
-	global.spr_custom_ot = sprite_create_from_surface(surf, 0, 0, 1600, 900, true, false, 800, 450);
-	surface_reset_target();
-	surface_free(surf);
+		for(j=100;j>=i;j--)
+		{
+			for(jj=0;jj<global.tablicapolaczen[j,jj]!=0;jj++)
+			{
+				if cz[j]==true
+				{
+					draw_set_color(c_aqua)
+					draw_line_width(global.tablicapozycjix[j],global.tablicapozycjiy[j],global.tablicapozycjix[global.tablicapolaczen[j,jj]],global.tablicapozycjiy[global.tablicapolaczen[j,jj]],global.tablicagrubosc[j]/4)
+					draw_circle(global.tablicapozycjix[j],global.tablicapozycjiy[j],global.tablicagrubosc[j]/7.69,0)
+		
+					sx=(global.tablicapozycjix[j]+global.tablicapozycjix[global.tablicapolaczen[j,jj]])/2;
+					sy=(global.tablicapozycjiy[j]+global.tablicapozycjiy[global.tablicapolaczen[j,jj]])/2;
+					sg=global.tablicagrubosc[j]/4;
+					draw_rectangle(sx-sg,sy-sg,sx+sg,sy+sg,0)
+					draw_rectangle(global.tablicapozycjix[j]-sg,global.tablicapozycjiy[j]-sg,global.tablicapozycjix[j]+sg,global.tablicapozycjiy[j]+sg,0)
+				}
+				else
+				{
+					draw_set_color(k_rozgrzanie)
+				}
+			
+				draw_set_color(k_miecz)
+			}
+		}
+
+		global.spr_custom_cz = sprite_create_from_surface(surf, 0, 0, 1600, 900, true, false, 800, 450);
+		surface_reset_target();
+		surface_free(surf);
 	
-	/*
-	Konrad to jest teraz twoje królestwo 
-	dc - dmg cięcia 
-	dd - dmg dzgniecia
-	sc - szybkosc ciecia
-	Masz stworzyć formułę która obliczy w miarę logiczny sposób dmg obu rodzajów oraz predkosci ciachania. Tzn aby dmg i spd zależało od różnych parametrów mieczy poniżej wypisuję ci parametry które możesz wykorzystać:
-	dlugosc_ostrza - rozumie sie samo przez się
-	waga - rozumie sie samo przez się
-	g - klasyfikacja miecza (0;200> - sztylet (200;400> - 1 reczny miecz (400;800> - 2 reczny miecz (800;nieskończonmość) - miecz jak z anime (wpisz sobie w google ff7 cloud a zrozumiesz)
-	ilosc_czubkow - rozumie sie samo przez siebie
-	wartosci podane teraz są przykładowe
-	*/
+	//tworzneie spritu ostrza
 	
-	global.dc=5;
-	global.dd=10;
-	global.sc=20;
+		var surf;
+		surf = surface_create(1600,900);
+		surface_set_target(surf);
+		draw_clear_alpha(c_black, 0);
 	
-	//tu w dół jest już moje
+		draw_set_color(k_miecz)
+		draw_rectangle(800-global.tablicagrubosc[100]/4,450-global.tablicagrubosc[100]/4,800+global.tablicagrubosc[100]/4,450+global.tablicagrubosc[100]/4,0)
+
+		for(j=100;j>=i;j--)
+		{
+			for(jj=0;jj<global.tablicapolaczen[j,jj]!=0;jj++)
+			{
+				if ot[j]==true
+				{
+					draw_set_color(c_orange)
+					draw_line_width(global.tablicapozycjix[j],global.tablicapozycjiy[j],global.tablicapozycjix[global.tablicapolaczen[j,jj]],global.tablicapozycjiy[global.tablicapolaczen[j,jj]],global.tablicagrubosc[j]/4)
+					draw_circle(global.tablicapozycjix[j],global.tablicapozycjiy[j],global.tablicagrubosc[j]/7.69,0)
+		
+					sx=(global.tablicapozycjix[j]+global.tablicapozycjix[global.tablicapolaczen[j,jj]])/2;
+					sy=(global.tablicapozycjiy[j]+global.tablicapozycjiy[global.tablicapolaczen[j,jj]])/2;
+					sg=global.tablicagrubosc[j]/4;
+					draw_rectangle(sx-sg,sy-sg,sx+sg,sy+sg,0)
+					draw_rectangle(global.tablicapozycjix[j]-sg,global.tablicapozycjiy[j]-sg,global.tablicapozycjix[j]+sg,global.tablicapozycjiy[j]+sg,0)
+				}
+				else
+				{
+					draw_set_color(k_rozgrzanie)
+				}
+			
+				draw_set_color(k_miecz)
+			}
+		}
+
+		global.spr_custom_ot = sprite_create_from_surface(surf, 0, 0, 1600, 900, true, false, 800, 450);
+		surface_reset_target();
+		surface_free(surf);
 	
-	global.klasyfikacja=klasyfikacja;
-	global.ilosc_czubkow=ilosc_czubkow;
-	global.dlugosc_ostrza=dlugosc_ostrza;
-	global.waga=waga;
+		/*
+		Konrad to jest teraz twoje królestwo 
+		dc - dmg cięcia 
+		dd - dmg dzgniecia
+		sc - szybkosc ciecia
+		Masz stworzyć formułę która obliczy w miarę logiczny sposób dmg obu rodzajów oraz predkosci ciachania. Tzn aby dmg i spd zależało od różnych parametrów mieczy poniżej wypisuję ci parametry które możesz wykorzystać:
+		dlugosc_ostrza - rozumie sie samo przez się
+		waga - rozumie sie samo przez się
+		g - klasyfikacja miecza (0;200> - sztylet (200;400> - 1 reczny miecz (400;800> - 2 reczny miecz (800;nieskończonmość) - miecz jak z anime (wpisz sobie w google ff7 cloud a zrozumiesz)
+		ilosc_czubkow - rozumie sie samo przez siebie
+		wartosci podane teraz są przykładowe
+		*/
 	
-	room_goto(room3)
+		global.dc=5;
+		global.dd=10;
+		global.sc=20;
+	
+		//tu w dół jest już moje
+	
+		global.klasyfikacja=klasyfikacja;
+		global.ilosc_czubkow=ilosc_czubkow;
+		global.dlugosc_ostrza=dlugosc_ostrza;
+		global.waga=waga;
+	
+		room_goto(room3)
+	}
 }
 
 if keyboard_check_pressed(vk_f1)
@@ -380,5 +398,10 @@ if keyboard_check(vk_f2)
 
 if szablon==true
 {
+	if o_GUI_k.katalog==true
+	{
+		global.szablon=global.katalog[0,o_GUI_k.pozycja_w_katalogu]
+		o_GUI_k.katalog=false
+	}
 	draw_sprite_general(global.szablon,0,0,0,1600,800,0,0,1,1,0,c_aqua,c_aqua,c_aqua,c_aqua,0.25)
 }

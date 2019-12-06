@@ -43,26 +43,33 @@ xs=1
 
 obr=0;
 o=0;
-for(i=100;i>10;i--)
+if global.diro==0
 {
-	ost=0
-	for(j=0;j<=10;j++)
+	for(i=100;i>10;i--)
 	{
-		if global.tablicapolaczen[i,j]!=0
+		ost=0
+		for(j=0;j<=10;j++)
 		{
-			ost++
-			ostp[o]=global.tablicapolaczen[i,j]
+			if global.tablicapolaczen[i,j]!=0
+			{
+				ost++
+				ostp[o]=global.tablicapolaczen[i,j]
+			}
+		}
+		if ost==1
+		{
+			ostx[o]=global.tablicapozycjix[i]
+			osty[o]=global.tablicapozycjiy[i]
+			o++;
 		}
 	}
-	if ost==1
-	{
-		ostx[o]=global.tablicapozycjix[i]
-		osty[o]=global.tablicapozycjiy[i]
-		o++;
-	}
-}
 
-diro=point_direction(o_kowal.x+((global.tablicapozycjix[ostp[1]]-800)*image_xscale)-22*xs,o_kowal.y+((global.tablicapozycjiy[ostp[1]]-450)*image_yscale)+15,o_kowal.x+((ostx[1]-800)*image_xscale)-22*xs,o_kowal.y+((osty[1]-450)*image_yscale)+15)
+	diro=point_direction(o_kowal.x+((global.tablicapozycjix[ostp[1]]-800)*image_xscale)-22*xs,o_kowal.y+((global.tablicapozycjiy[ostp[1]]-450)*image_yscale)+15,o_kowal.x+((ostx[1]-800)*image_xscale)-22*xs,o_kowal.y+((osty[1]-450)*image_yscale)+15)
+}
+else
+{
+	diro=global.diro
+}
 
 dmg_c=global.dc
 dmg_d=global.dd

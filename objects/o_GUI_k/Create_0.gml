@@ -1,3 +1,5 @@
+global.diro=0
+
 akceptacja_x=1500;
 akceptacja_y=800;
 
