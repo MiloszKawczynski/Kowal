@@ -11,7 +11,6 @@ kolor_krawedzi=c_green
 x=wspol_x-seksapil/2
 y=wspol_y
 guzik=vk_anykey // guzik bo pani Klekot nie lubi guzików 
-global.jakosc=0
 global.nazwa_broni="";
 odstemp=40;
 

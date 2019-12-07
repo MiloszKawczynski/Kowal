@@ -8,5 +8,6 @@ if global.qte==0
 }
 else
 {
+	global.jakosc+=25-((abs(x-wspol_x)/seksapil/2)*100)
 	instance_destroy();
 }

@@ -9,3 +9,17 @@ Katalog
 7 - Dlugość ostrza
 8 - Ilość czubków
 9 - Waga
+10 - jakosc
+11 - nazwa
+12 - kierunek
+
+Zlecenie
+0 - DMG c
+1 - DMG d
+2 - SPD c
+3 - Klasyfikacja
+4 - Dlugość ostrza
+5 - Ilość czubków
+6 - Waga
+7 - Jakość
+8 - Cena

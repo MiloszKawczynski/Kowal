@@ -159,58 +159,61 @@ if kucie==true
 	}
 	if g>200
 	{
-		klasyfikacja="Miecz 1-ręczny"
+		klasyfikacja="1-ręczny"
 	}
 	if g>400
 	{
-		klasyfikacja="Miecz 2-ręczny"
+		klasyfikacja="2-ręczny"
 	}
 	if g>800
 	{
-		klasyfikacja="Miecz z Anime"
+		klasyfikacja="Anime"
 	}
 
 	//tworzenie i rozklepywanie węzła
 
 	if mouse_check_button_pressed(mb_left)
 	{	
-		if gotowiec==false
+		if mouse_x>224 and mouse_x<1345 and mouse_y>109 and mouse_y<720
 		{
-			if n<=roz and n>wyp
+			if gotowiec==false
 			{
-				i--;
-				global.tablicapozycjix[i]=mouse_x;
-				global.tablicapozycjiy[i]=mouse_y;
-				for(j=0;global.tablicapolaczen[i,j]!=0;j++)
+				if n<=roz and n>wyp
 				{
+					i--;
+					global.tablicapozycjix[i]=mouse_x;
+					global.tablicapozycjiy[i]=mouse_y;
+					for(j=0;global.tablicapolaczen[i,j]!=0;j++)
+					{
+					}
+					global.tablicapolaczen[i,j]=indeks_wybranego_wezla;
+					wysokosc=global.tablicagrubosc[indeks_wybranego_wezla];
+					global.tablicagrubosc[i]=wysokosc-1;
+					roz=rozz;
+					for(j=0;global.tablicapolaczen[indeks_wybranego_wezla,j]!=0;j++)
+					{
+					}
+					global.tablicapolaczen[indeks_wybranego_wezla,j]=i;
 				}
-				global.tablicapolaczen[i,j]=indeks_wybranego_wezla;
-				wysokosc=global.tablicagrubosc[indeks_wybranego_wezla];
-				global.tablicagrubosc[i]=wysokosc-1;
-				roz=rozz;
-				for(j=0;global.tablicapolaczen[indeks_wybranego_wezla,j]!=0;j++)
-				{
-				}
-				global.tablicapolaczen[indeks_wybranego_wezla,j]=i;
-			}
 	
-			if n<=wyp
-			{
-				global.tablicagrubosc[indeks_wybranego_wezla]+=predkosc_rozklepywania
-				roz=rozz
+				if n<=wyp
+				{
+					global.tablicagrubosc[indeks_wybranego_wezla]+=predkosc_rozklepywania
+					roz=rozz
+				}
 			}
-		}
-		else
-		{
-			gotx[ilosc_gotowcow]=global.tablicapozycjix[indeks_wybranego_wezla];
-			goty[ilosc_gotowcow]=global.tablicapozycjiy[indeks_wybranego_wezla];
-			rodzaj_gotowca_postawionego[ilosc_gotowcow]=rodzaj_gotowca;
-			if ilosc_gotowcow<10
+			else
 			{
-				ilosc_gotowcow++;
+				gotx[ilosc_gotowcow]=global.tablicapozycjix[indeks_wybranego_wezla];
+				goty[ilosc_gotowcow]=global.tablicapozycjiy[indeks_wybranego_wezla];
+				rodzaj_gotowca_postawionego[ilosc_gotowcow]=rodzaj_gotowca;
+				if ilosc_gotowcow<10
+				{
+					ilosc_gotowcow++;
+				}
+				gotowiec=false;
+				postawiony_gotowiec=true;
 			}
-			gotowiec=false;
-			postawiony_gotowiec=true;
 		}
 	}
 

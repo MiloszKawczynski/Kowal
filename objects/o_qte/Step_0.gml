@@ -2,9 +2,8 @@ if(x>wspol_x+seksapil/2 or x<wspol_x-seksapil/2) {hspeed = -hspeed}
 
 if zapisywanie_nazwy==false
 {
-	if(keyboard_check_pressed(guzik))
+	if(keyboard_check_pressed(guzik)) and alarm[0]=-1
 	{
-		global.jakosc=25-((abs(x-wspol_x)/seksapil/2)*100)
 		hspeed=0
 		alarm[0]=odstemp;
 	}
@@ -20,6 +19,7 @@ if zapisywanie_nazwy==true
 {
 	if keyboard_check_pressed(vk_enter)
 	{
+		global.jakosc=(global.jakosc/75)*100
 		room_goto_next();
 	}
 	
