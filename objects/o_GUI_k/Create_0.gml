@@ -4,10 +4,10 @@ akceptacja_x=1500;
 akceptacja_y=800;
 
 plan_x=750;
-plan_y=700;
+plan_y=800;
 
 test_x=850;
-test_y=700;
+test_y=800;
 
 katalog_x=1500;
 katalog_y=700;

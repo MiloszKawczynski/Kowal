@@ -262,17 +262,28 @@ if keyboard_check_pressed(ord("S"))
 
 if keyboard_check_pressed(ord("G"))
 {
-	if gotowiec==false {gotowiec=true} else{gotowiec=false}
+	if gotowiec==false {if sprite_exists(global.zapisanabron[rodzaj_gotowca]) {gotowiec=true}} else{gotowiec=false}
 } 
 
 if gotowiec==true
 {
 	gotx[ilosc_gotowcow]=global.tablicapozycjix[indeks_wybranego_wezla];
 	goty[ilosc_gotowcow]=global.tablicapozycjiy[indeks_wybranego_wezla];
-	
-	if keyboard_check_pressed(ord("0")) or keyboard_check_pressed(ord("1")) or keyboard_check_pressed(ord("2")) or keyboard_check_pressed(ord("3")) or keyboard_check_pressed(ord("4")) or keyboard_check_pressed(ord("5")) or keyboard_check_pressed(ord("6")) or keyboard_check_pressed(ord("7")) or keyboard_check_pressed(ord("8")) or keyboard_check_pressed(ord("9"))
+}
+
+if keyboard_check_pressed(ord("0")) or keyboard_check_pressed(ord("1")) or keyboard_check_pressed(ord("2")) or keyboard_check_pressed(ord("3")) or keyboard_check_pressed(ord("4")) or keyboard_check_pressed(ord("5")) or keyboard_check_pressed(ord("6")) or keyboard_check_pressed(ord("7")) or keyboard_check_pressed(ord("8")) or keyboard_check_pressed(ord("9"))
+{
+	rodzaj_gotowca=keyboard_lastchar
+	if !sprite_exists(global.zapisanabron[rodzaj_gotowca])
 	{
-		rodzaj_gotowca=keyboard_lastchar
+		for(fuck=0;fuck<=9;fuck++)
+		{
+			if sprite_exists(global.zapisanabron[fuck])
+			{
+				rodzaj_gotowca=fuck
+				break;
+			}
+		}
 	}
 }
 

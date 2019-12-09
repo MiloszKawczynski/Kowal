@@ -147,7 +147,7 @@ if debug==true
 
 /*Tworzenie sprite z utworznoego materiału*/
 
-if keyboard_check_pressed(vk_enter)
+if keyboard_check_pressed(vk_enter) and (i<100 or o_GUI_k.katalog=true)
 {
 	if o_GUI_k.katalog==true
 	{

@@ -126,6 +126,10 @@ if zamowienie==true
 		{
 			dodatek_placy+=((global.katalog[4,pozycja_w_katalogu]-global.zlecenie[1])/wybrednosc)
 		}
+		if global.zlecenie[2]!=""
+		{
+			dodatek_placy+=((global.katalog[5,pozycja_w_katalogu]-global.zlecenie[2])/wybrednosc)
+		}
 		if global.zlecenie[6]!=""
 		{
 			dodatek_placy-=(abs(global.katalog[9,pozycja_w_katalogu]-global.zlecenie[6])/wybrednosc)
@@ -134,6 +138,30 @@ if zamowienie==true
 		{
 			dodatek_placy-=20*wybrednosc
 		}
+		if global.zlecenie[4]!=""
+		{
+			dodatek_placy-=abs(global.zlecenie[4]-global.katalog[7,pozycja_w_katalogu])*wybrednosc*10
+		}
+		if global.zlecenie[5]!=""
+		{
+			dodatek_placy-=abs(global.zlecenie[5]!=global.katalog[8,pozycja_w_katalogu])*wybrednosc*10
+		}
 	}
 	
 }
+
+//if o_material.debug==true
+//{
+	if keyboard_check_pressed(ord("I"))
+	{
+		global.zlecenie[0]=""
+		global.zlecenie[1]=""
+		global.zlecenie[2]=""
+		global.zlecenie[3]=""
+		global.zlecenie[4]="5"
+		global.zlecenie[5]="1"
+		global.zlecenie[6]="100"
+		global.zlecenie[7]=""
+		global.zlecenie[8]=120
+	}
+//}
