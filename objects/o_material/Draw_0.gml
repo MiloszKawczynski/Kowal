@@ -62,6 +62,7 @@ draw_set_color(k_rozgrzanie)
 draw_rectangle(800-global.tablicagrubosc[100]/4,450-global.tablicagrubosc[100]/4,800+global.tablicagrubosc[100]/4,450+global.tablicagrubosc[100]/4,0)
 
 ilosc_czubkow=-1
+
 for(j=100;j>=i;j--)
 {
 	for(jj=0;jj<global.tablicapolaczen[j,jj]!=0;jj++)
@@ -403,5 +404,7 @@ if szablon==true
 		global.szablon=global.katalog[0,o_GUI_k.pozycja_w_katalogu]
 		o_GUI_k.katalog=false
 	}
-	draw_sprite_general(global.szablon,0,0,0,1600,800,0,0,1,1,0,c_aqua,c_aqua,c_aqua,c_aqua,0.25)
+	outline_start(3,c_black,global.szablon,16,0);
+	draw_sprite_general(global.szablon,0,0,0,1600,800,0,0,1,1,0,c_aqua,c_aqua,c_aqua,c_aqua,0.01);
+	outline_end();
 }
