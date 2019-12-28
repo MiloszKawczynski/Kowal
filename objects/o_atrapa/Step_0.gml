@@ -1,5 +1,8 @@
-y=o_kowal.y+o_kowal.vspeed+przesuniecie_y;
-x=o_kowal.x+(przesuniecie_x*xs)+o_kowal.hspeed;
+swordsman_x=swordsman.x;
+swordsman_y=swordsman.y;
+
+y=swordsman_y+o_kowal.vspeed+przesuniecie_y;
+x=swordsman_x+(przesuniecie_x*xs)+o_kowal.hspeed;
 
 if (o_kowal.kierunek!=0)
 {

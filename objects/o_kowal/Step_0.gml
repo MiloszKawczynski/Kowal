@@ -63,6 +63,13 @@ if keyboard_check_pressed(ord("R"))
 	game_restart()
 }
 
+if niesmiertelnosc==0
+{
+	if (place_meeting(x,y,o_bron_wroga) and (instance_nearest(x,y,o_wrog).ruch==1 or instance_nearest(x,y,o_wrog).ruch==2)) {obr=o_atrapa.dmg_d; hp-=o_atrapa.dmg_d; niesmiertelnosc=10;}
+}
+
+if niesmiertelnosc>0 {niesmiertelnosc--;}
+
 if keyboard_check_pressed(vk_enter) 
 {
 	if global.diro!=0

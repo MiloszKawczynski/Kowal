@@ -26,3 +26,5 @@ if niesmiertelnosc>0 {niesmiertelnosc--;}
 image_xscale=sign(o_kowal.x-x)
 
 if hp<=0 {instance_destroy();}
+
+scr_ai_wroga(1)

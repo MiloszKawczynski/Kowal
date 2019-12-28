@@ -35,8 +35,23 @@ tab[4,3] = 9
 przesuniecie_x=15;
 przesuniecie_y=-22;
 
-y=o_kowal.y+przesuniecie_x;
-x=o_kowal.x+przesuniecie_y;
+if distance_to_point(o_kowal.x,o_kowal.y)<distance_to_point(instance_nearest(x,y,o_wrog).x,instance_nearest(x,y,o_wrog).y)
+{
+	swordsman_x=o_kowal.x;
+	swordsman_y=o_kowal.y;
+	
+	swordsman=o_kowal;
+}
+else
+{
+	swordsman_x=instance_nearest(x,y,o_wrog).x;
+	swordsman_y=instance_nearest(x,y,o_wrog).y;
+	
+	swordsman=instance_nearest(x,y,o_wrog);
+}
+
+y=swordsman_y+przesuniecie_x;
+x=swordsman_x+przesuniecie_y;
 
 sprite_index=global.spr_custom
 xs=1
@@ -64,7 +79,7 @@ if global.diro==0
 		}
 	}
 
-	diro=point_direction(o_kowal.x+((global.tablicapozycjix[ostp[1]]-800)*image_xscale)-22*xs,o_kowal.y+((global.tablicapozycjiy[ostp[1]]-450)*image_yscale)+15,o_kowal.x+((ostx[1]-800)*image_xscale)-22*xs,o_kowal.y+((osty[1]-450)*image_yscale)+15)
+	diro=point_direction(swordsman_x+((global.tablicapozycjix[ostp[1]]-800)*image_xscale)-22*xs,swordsman_y+((global.tablicapozycjiy[ostp[1]]-450)*image_yscale)+15,swordsman_x+((ostx[1]-800)*image_xscale)-22*xs,swordsman_y+((osty[1]-450)*image_yscale)+15)
 }
 else
 {
